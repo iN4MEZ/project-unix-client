@@ -1,0 +1,29 @@
+{
+	"Key": "Value", //วิธีสร้าง Key และ Value
+	
+	{} // หมายถึง Object
+	
+	"Key": {} // สร้าง Key และ Value ที่เป็น Object
+	
+	[] // ประเภทข้อมูลเรียกว่า Array เก็บได้หลายข้อมูล
+	
+	"Key": {[]} // สร้าง Key และ Value ที่เป็น Array ใน Object
+	
+	"Key": [] // สร้าง Key และ Value ที่เป็น Array
+	
+	
+	"Key": {[{}]} // สร้าง Key และ Value ที่เป็น Object และมี Array ด้านใน และด้านเก็บเก็บข้อมูล Object
+	
+	"Key": 100 // สร้าง Key และ Value ที่เป็น ตัวเลข
+	
+	"Key": 100.5 // สร้าง Key และ Value ที่เป็น ตัวเลขทศนิยม
+	
+	"Key": "ABC" // สร้าง Key และ Value ที่เป็น ตัวอักษร
+	
+	"Key": { "MyData": {} } // สร้าง Key และ Value ที่เป็น Object และ มี Key อีกตัวด้านในชือ MyData ที่มี Value เป็น Object
+	
+	"Key": { "MyData": [] } // สร้าง Key และ Value ที่เป็น Object และ มี Key อีกตัวด้านในชือ MyData ที่มี Value เป็น Array
+	
+	"Key": { "MyData": {[{}]} } // สร้าง Key และ Value ที่เป็น Object และ มี Key อีกตัวด้านในชือ MyData ที่มี Value เป็น Object ที่เก็บ Array และใน Array เก็บ Object
+	
+}

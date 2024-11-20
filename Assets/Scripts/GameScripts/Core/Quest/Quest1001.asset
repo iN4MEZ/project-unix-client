@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c42bfb3868dfd2140a37e94f48c078d2, type: 3}
+  m_Name: Quest1001
+  m_EditorClassIdentifier: 
+  QuestName: Kill Hitler
+  QuestDescription: Kill Hitler NOW!
+  Objectives:
+  - OType: 2
+    TargerDetail: {fileID: 0}
+    RequireAmount: 1
+    CurrentAmount: 0
+    isComplete: 0
+  ItemReward:
+  - {fileID: 11400000, guid: 7ec2d18fce3190045a8b0645d46883c2, type: 2}

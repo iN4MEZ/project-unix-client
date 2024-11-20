@@ -1,0 +1,34 @@
+{
+	// 1000 คือ Key ที่เก็บ Id ของ Quest
+	"1000": { // สร้าง Object โดยใช้ปีกกา
+		"questType": "TALK", // กำหนด Key QuestType และใส่ค่า TALK เป็นข้อมูลประเภทตัวอักษร
+		"Objective": "NPC000", // ไปคุยกับใคร
+		"event": { // เริ่ม Key event Scope
+			"eventType": "MovePos", // กำหนด eventType เป็น MovePos
+			"value": { // ค่า XYZ ที่ต้องการ
+				"x" : 500,
+				"y" : 500,
+				"z": 500,
+			} // จบ Key Value 
+	} // จบ Key Event
+	,
+	"LoadDialogue": "Dialogue/NPC01TalkToTakeQuest.json", // ข้อมูล Dialogue
+	
+	"questType": "HUNT", // กำหนด Quest Type ไปล่า . . . 
+	"Objective": { // ให้ทำอะไร
+		"TargetType": "MONSTER", // ไปล่า Monster
+		"TargetId": 10001, // ตัวอะไร?
+		"RequireAmount": 10, // จำนวนที่ต้องล่า
+		"ItemReward": [{ // ของที่จะได้เมือทำเสร็จ สร้างแบบ []
+			"ItemId": 1001, // id item ที่ต้องการให้
+			"Amount": 10 // จำนวน
+		},
+		{
+			"ItemId": 600,
+			"Amount": 10000
+		}
+		]
+	},
+	"eventType": "QuestComplete", // กำหนด event
+	"LoadDialogue": "Dialogue/NPC01QuestComplete.json" // โหลด Dialogue ถ้าไปคุยกับ NPC
+}

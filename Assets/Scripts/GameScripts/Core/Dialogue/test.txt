@@ -1,0 +1,42 @@
+﻿[NAME=ฟิว]ผมชอบกินเบราว์นี่
+
+1+1 = 3 นะ
+
+[NAME=ดีหลาย]ไก่โต้ง
+
+กินเลย์
+
+I'm Gay
+
+WEED
+
+SEX WITH ANT
+
+[NAME=ภูมิ]ผมรักพ่อ
+
+มารักพ่อกันไหม XD
+
+GGEZ
+
+EndQueue
+
+** Multiple choice ** (Needs work)
+
+But you'd probably still want everything in the same file right?
+
+[CHOICE=Y] YES
+[CHOICE=N] NO
+
+{Y} Well you're in luck, that's what we're doing here!
+
+{N} Ah, well you can really do a number of things, but I'll tell you my way.
+
+You need 2 things really.
+
+1) You need a way to mark choices.
+2) You need a way to mark the next line of dialogue to say.
+
+With these you could probably make a system to handle elementary branching dialouge.
+
+Too much branching dialogue could be a headache for this system, if you think this is necessary for your game, you'll definitely want to develop a more modular system..
+

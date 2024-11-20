@@ -1,0 +1,45 @@
+{
+  "conversations": [
+    {
+      "id": "intro",
+      "nodes": [
+        {
+          "speaker": "Player",
+          "text": "Hello there!",
+          "next": "npc_response",
+          "event": [{
+            "type": "CamShake",
+            "value": {
+              "x" : 1,
+              "y" : 1,
+              "z" : 1
+            }
+          },
+          {
+            "type": "MoveCamPos",
+            "value": {
+              "x" : 1,
+              "y" : 1,
+              "z" : 1
+            }
+          }
+        ]
+        },
+        {
+          "speaker": "NPC",
+          "text": "Greetings, adventurer! Welcome to our humble town.",
+          "choices": [
+            {
+              "text": "Tell me more about the town.",
+              "next": "town_info"
+            },
+            {
+              "text": "I'm on a quest. Do you need any help?",
+              "next": "quest_response"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

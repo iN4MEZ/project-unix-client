@@ -5,6 +5,16 @@
 
 # A marker file of which existence is used to decide whether to run the first-launch experience or not.
 
+*/*
+
+# Don't ignore .gitignore itself
+!.gitignore
+!.gitattributes
+
+# Don't ignore the script folder and its contents
+!Assets/Scripts
+
+
 InitCodeMarker
 
 /[Tt]utorial [Dd]efaults/
@@ -169,3 +179,9 @@ crashlytics-build.properties
 
 **/*_clone_*/
 
+/Assets/Resources/Animations
+/Assets/Resources/BH3 Assets
+/Assets/Sword_sheath_AnimSet
+/Assets/UnityChan
+/Assets/Resources
+/Assets/TextMesh Pro
