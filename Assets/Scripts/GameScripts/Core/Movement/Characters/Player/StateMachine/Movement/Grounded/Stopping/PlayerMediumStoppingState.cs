@@ -12,9 +12,9 @@ namespace NMX
 
         public override void Enter()
         {
-            stateMachine.ReuseableData.MovementDecelerationForce = movementData.StopData.MediumDecelerationForce;
-
             base.Enter();
+
+            stateMachine.ReuseableData.MovementDecelerationForce = movementData.StopData.MediumDecelerationForce;
 
             StartAnimation(stateMachine.Player.AnimationData.MediumStopParameterHash);
         }

@@ -27,13 +27,6 @@ namespace NMX
 
         [field: SerializeField] public Player Player { get; private set; }
 
-        private void Awake()
-        {
-
-            //Client.instance.udp.GetTeamDataPacket();
-
-        }
-
         private void Start()
         {
             AddSwitchAvatarInputAction();
@@ -63,7 +56,6 @@ namespace NMX
         {
             Player.PlayerInput.PlayerActions.SwitchAvatar.performed += OnSwitchAvatar;
             AddOnAvatarChangeEvent();
-            //OnChangeAvatar += OnChangeForUpdateCamera;
         }
 
         private void RemoveSwitchAvatarInputAction()
@@ -214,8 +206,6 @@ namespace NMX
             {
                 targetEntity.SetActive(true);
             }
-
-            //DisableAllActiveAvatarExcept(index);
 
             OnChangeAvatar?.Invoke();
             Player.movementStateMachine.ReuseableData.InAvatarChangeTransition = false;

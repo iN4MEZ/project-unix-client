@@ -220,7 +220,9 @@ namespace NMX
 
             GameObject sceneManager = Resources.Load("NMX/Assets/ManagerGameObjects/SceneEntity/SceneManager") as GameObject;
 
-            GameObject.Instantiate(sceneManager);
+            GameObject smgo = GameObject.Instantiate(sceneManager);
+
+            smgo.GetComponent<GameSceneManager>().Initialize();
 
             await Task.CompletedTask;
         }

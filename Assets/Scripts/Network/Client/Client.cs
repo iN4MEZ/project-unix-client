@@ -96,10 +96,6 @@ namespace NMX.GameCore.Network.Client
 
         private void Update()
         {
-            if(Input.GetKeyDown(KeyCode.F)) {
-                //udp.TestPacket();
-                udp.GetTeamDataPacket();
-            }
 
             if (!isSendBreath)
             {
@@ -351,17 +347,6 @@ namespace NMX.GameCore.Network.Client
                 callback();
 
                 return Task.CompletedTask;
-            }
-
-            public async void GetTeamDataPacket()
-            {
-                NetPacket packet = new NetPacket()
-                {
-                    CmdType = Protocol.CmdType.GetTeamDataReq
-                };
-
-                Debug.Log("Send TeamDataREQ");
-                await clientSession.SendAsync(packet);
             }
 
             [Command("coop")]

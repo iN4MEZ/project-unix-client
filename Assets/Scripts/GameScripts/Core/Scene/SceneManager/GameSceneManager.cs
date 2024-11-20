@@ -33,10 +33,10 @@ namespace NMX
 
         private Slider processSlider;
 
+        private bool useCamBrain = false;
 
-        private void Awake()
+        public void Initialize()
         {
-
             Instance = this;
 
             // Loading UI Enable In Final
@@ -54,7 +54,7 @@ namespace NMX
 
             Application.targetFrameRate = 144;
 
-            if(Instance != this)
+            if (Instance != this)
             {
                 Destroy(Instance);
                 Destroy(gameObject);
@@ -64,13 +64,10 @@ namespace NMX
             DontDestroyOnLoad(LoadingUI);
 
             Debug.Log("Initialized Instance GameSceneManager!");
-
         }
 
         private void Start()
         {
-            // Dev mode
-            //EnterSceneFirstState(1, true);
 
         }
 
@@ -80,9 +77,12 @@ namespace NMX
             UnityEngine.Object cameraResource = Resources.Load("NMX/Assets/Entitys/Player/GameObjects/Cam/PlayerCamera");
             var camObj = Instantiate((GameObject)cameraResource);
 
-            // Camera Brain
-            //UnityEngine.Object cameraBrainResource = Resources.Load("Entitys/Player/GameObjects/Cam/Camera");
-            //var camBrainObj = Instantiate((GameObject)cameraResource);
+            if(useCamBrain)
+            {
+                // Camera Brain
+                UnityEngine.Object cameraBrainResource = Resources.Load("NMX/Assets/Entitys/Player/GameObjects/Cam/Camera");
+                var camBrainObj = Instantiate((GameObject)cameraResource);
+            }
 
             UnityEngine.Object playerResource = Resources.Load("NMX/Assets/Entitys/Player/GameObjects/Player/Player") as GameObject;
 
@@ -226,7 +226,6 @@ namespace NMX
         {
 
             LoadingUI.gameObject.SetActive(true);
-            //UIManager.instance.MainUICanvas.enabled = false;
 
             if (SceneManager.GetActiveScene().buildIndex != id) { currentLoadingSceneAsyncOp = SceneManager.LoadSceneAsync((int)id); }
 
