@@ -27,6 +27,8 @@ namespace NMX
 
         [field: SerializeField] public int RealId { get; set; }
 
+        public string ResourcePath { get; set; }
+
 
 
         [field: SerializeField] public static GameObject AvatarObjectInstance;

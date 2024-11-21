@@ -127,8 +127,6 @@ namespace NMX
 
                         entities[entcompo.EntityId] = entcompo;
 
-                        Debug.Log("Added To memory" + entcompo.gameObject.name);
-
                     } catch (NullReferenceException nullex)
                     {
                         Debug.LogError(nullex);

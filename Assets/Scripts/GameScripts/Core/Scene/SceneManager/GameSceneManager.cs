@@ -117,7 +117,7 @@ namespace NMX
 
         }
 
-        private void LoadEntityAndObject()
+        public void LoadEntityAndObject()
         {
             InstatiateEntity();
 
@@ -193,7 +193,7 @@ namespace NMX
             entitiesManager.entities.Clear();
 
             this.SceneData.Id = id;
-            StartCoroutine(LoadSceneAsync(id)); // Sv dev
+            StartCoroutine(LoadSceneAsync(id, initPos)); // Sv dev
 
             Client.instance.Player.Rigidbody.MovePosition(initPos);
 
@@ -203,14 +203,8 @@ namespace NMX
 
         public async void EnterSceneAsync(uint id,Vector3 initPos)
         {
-            await Client.NET.SendPacketAsync(CmdType.EnterScenePreStateReq);
-
-            CreateUiGameObject();
 
             this.SceneData.Id = id;
-            StartCoroutine(LoadSceneAsync(id)); // Sv dev
-
-            await Client.NET.SendPacketAsync(GameCore.Network.Protocol.CmdType.EnterScenePostStateReq);
 
             entitiesManager = GetComponentInChildren<EntityManager>();
 
@@ -218,24 +212,52 @@ namespace NMX
 
             PlayerAvatarManager = GetComponentInChildren<PlayerAvatarManager>();
 
-            PlayerAvatarManager.LoadServerAvatarData();
-            LoadEntityAndObject();
+            StartCoroutine(LoadSceneAsync(id,initPos)); // Sv dev
+
         }
 
-        private IEnumerator LoadSceneAsync(uint id)
+        private async void SendRequestAvatarData()
+        {
+            await Client.NET.SendPacketAsync(CmdType.GetAvatarDataReq);
+
+            await Client.NET.SendPacketAsync(CmdType.EnterScenePreStateReq);
+
+            StartCoroutine(Client.NET.SendPacketAsyncIEnumerator(CmdType.GetTeamDataReq));
+
+            CreateUiGameObject();
+
+        }
+
+        private IEnumerator LoadSceneAsync(uint id, Vector3 initPos)
         {
 
-            LoadingUI.gameObject.SetActive(true);
+            if (SceneManager.GetActiveScene().buildIndex != id) {
 
-            if (SceneManager.GetActiveScene().buildIndex != id) { currentLoadingSceneAsyncOp = SceneManager.LoadSceneAsync((int)id); }
+                LoadingUI.gameObject.SetActive(true);
 
-            while (!currentLoadingSceneAsyncOp.isDone)
-            {
-                float processVal = Mathf.Clamp01(currentLoadingSceneAsyncOp.progress / 0.9f);
+                currentLoadingSceneAsyncOp = SceneManager.LoadSceneAsync((int)id);
 
-                processSlider.value = processVal;
-                yield return null;
+                SendRequestAvatarData();
+
+                while (!currentLoadingSceneAsyncOp.isDone)
+                {
+                    float processVal = Mathf.Clamp01(currentLoadingSceneAsyncOp.progress / 0.9f);
+
+                    processSlider.value = processVal;
+                    yield return null;
+                }
+
+                yield return StartCoroutine(Client.NET.clientSession.WaitForPacketProcessed(CmdType.GetAvatarDataRsp));
+
+                Client.NET.SendPacketAsync(GameCore.Network.Protocol.CmdType.EnterScenePostStateReq);
+
+                PlayerAvatarManager.LoadServerAvatarData();
+
+                LoadEntityAndObject();
+
             }
+
+
             if (currentLoadingSceneAsyncOp.isDone)
             {
                 OnClientFinishLoaded();
@@ -245,6 +267,7 @@ namespace NMX
             }
 
         }
+
 
         private async void OnClientFinishLoaded()
         {

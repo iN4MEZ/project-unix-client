@@ -120,10 +120,13 @@ namespace NMX
 
             PlayerAvatarManager manager = GameSceneManager.Instance.PlayerAvatarManager;
 
-            foreach(var rspData in rsp.AvatarList)
+            foreach (var rspData in rsp.AvatarList)
             {
                 manager.Avatars.Add(new AvatarData { AvatarID = rspData.Id });
+                Debug.Log("Added! :" + rspData.Id);
             }
+
+            await Task.CompletedTask;
         }
 
         private async Task PlayerSync(NetPacket packet)

@@ -1,9 +1,10 @@
-using NMX.GameCore.Network.Client;
+﻿using NMX.GameCore.Network.Client;
 using NMX.GameCore.Network.Protocol;
 using NMX.Protocal;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -27,34 +28,47 @@ namespace NMX
 
         [field: SerializeField] public Player Player { get; private set; }
 
-        private void Start()
-        {
-            AddSwitchAvatarInputAction();
-        }
 
-        public async void LoadServerAvatarData()
+        public void LoadServerAvatarData()
         {
 
-            await Client.NET.SendPacketAsync(CmdType.GetAvatarDataReq);
+            foreach (var avatar in Avatars)
+            {
 
-            await Client.NET.SendPacketAsync(CmdType.GetTeamDataReq);
+                var resources = LocalStorageManager.Instance.GetAvatarDataById(avatar.AvatarID);
 
-            CreateAvatarGameObject();
+                TeamAvatar.Add(Resources.Load($"{resources.ResourcePath}") as GameObject);
+            }
 
             Player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+
+            if (Player != null) {
+                AddSwitchAvatarInputAction();
+            }
         }
 
-        private void CreateAvatarGameObject()
+        private IEnumerator LoadAvatarResourceAsync(string path)
         {
-            TeamAvatar.Add(Resources.Load($"NMX/Assets/Entitys/Avatar/Prefabs/GameObjects/10001/TestAvatar") as GameObject);
-            TeamAvatar.Add(Resources.Load($"NMX/Assets/Entitys/Avatar/Prefabs/GameObjects/10007/UnityChan") as GameObject);
-            TeamAvatar.Add(Resources.Load($"NMX/Assets/Entitys/Avatar/Prefabs/GameObjects/10005/Elysia") as GameObject);
+            ResourceRequest request = Resources.LoadAsync<GameObject>(path);
+            yield return request;
+
+            if (request.asset != null)
+            {
+                GameObject loadedObject = request.asset as GameObject;
+                var loadedObjectGo = Instantiate(loadedObject);
+                TeamAvatar.Add(loadedObjectGo);
+            }
+            else
+            {
+                Debug.LogError("Failed to load the resource.");
+            }
         }
 
 
         private void AddSwitchAvatarInputAction()
         {
             Player.PlayerInput.PlayerActions.SwitchAvatar.performed += OnSwitchAvatar;
+
             AddOnAvatarChangeEvent();
         }
 
@@ -66,7 +80,7 @@ namespace NMX
         private void AddOnAvatarChangeEvent()
         {
             OnChangeAvatar += OnChangeForStateAvatar;
-            OnChangeAvatar += OnChangePlayerPosition;
+            //OnChangeAvatar += OnChangePlayerPosition;
         }
 
         private void RemoveOnAvatarChangeEvent()
@@ -137,13 +151,8 @@ namespace NMX
 
             UIManager.instance.UpdateActiveAvatarIcon(AvatarOnLoadData);
 
-            foreach (GameObject activeOnLoad in AvatarOnLoadData)
-            {
-                activeOnLoad.SetActive(false);
-            }
-
             DisableAllActiveAvatarExcept(0);
-            SetAvatarActive(0);
+            
 
         }
         public AvatarManager GetActiveAvatarManager()
@@ -164,7 +173,7 @@ namespace NMX
             {
                 if (activeOnLoad.activeSelf)
                 {
-                    return activeOnLoad.transform.GetChild(0).gameObject;
+                    return activeOnLoad.transform.GetChild(0).gameObject ?? throw new NullReferenceException();
                 }
             }
             return null;

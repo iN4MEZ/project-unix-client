@@ -244,7 +244,7 @@ namespace NMX.GameCore.Network.Client
                     Client.instance.ClientConnectionState = CONNECTION_STATE.DISCONNECTED;
                     Debug.LogException(e);
                     isConnected = false;
-                    print("Uplink Fails!!!!");
+                    Debug.LogError("Uplink Fails!!!!");
                     clientSession?.Dispose();
                     udpClient.Close();
                 }
@@ -335,6 +335,22 @@ namespace NMX.GameCore.Network.Client
 
                 return Task.CompletedTask;
             }
+
+            public IEnumerator SendPacketAsyncIEnumerator(CmdType type)
+            {
+                NetPacket packet = new NetPacket()
+                {
+                    CmdType = type,
+                };
+
+                // สร้าง Task และใช้ await ภายใน
+                ValueTask task = clientSession.SendAsync(packet);
+                while (!task.IsCompleted)
+                {
+                    yield return null; // รอให้ Task เสร็จสมบูรณ์
+                }
+            }
+
             public async Task<Task> SendPacketAsync(CmdType type,Action callback)
             {
                 NetPacket packet = new NetPacket()

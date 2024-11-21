@@ -5,6 +5,7 @@ using UnityEngine;
 using NMX.GameCore.Network.Protocol;
 using NMX.Protocal;
 using static NMX.GameCore.Network.Client.Client;
+using System.Collections;
 
 namespace NMX.GameCore.Network.Client
 {
@@ -19,6 +20,8 @@ namespace NMX.GameCore.Network.Client
         private const int WriteTimeout = 10;
 
         private bool active;
+
+        private CmdType _currentPacket;
 
         private INetworkUnit networkUnit;
 
@@ -93,8 +96,24 @@ namespace NMX.GameCore.Network.Client
 
                 await serverCommandHandler.packetHandlers[packet.CmdType](packet);
 
+                _currentPacket = packet.CmdType;
+
             } while (buffer.Length - consumed >= 12);
             return consumed;
+        }
+
+
+
+        public IEnumerator WaitForPacketProcessed(CmdType cmdType)
+        {
+            // รอจนกว่าคำขอจะได้รับการตอบกลับจากเซิร์ฟเวอร์
+            while (_currentPacket == cmdType)
+            {
+                // รอให้คำขอประมวลผลเสร็จ
+                yield return null;
+
+                Debug.Log(cmdType + " Has Handle!");
+            }
         }
 
         public async ValueTask SendAsync(NetPacket packet)

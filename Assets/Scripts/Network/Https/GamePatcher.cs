@@ -38,7 +38,7 @@ namespace NMX
                 Directory.CreateDirectory(fullPath);
             }
 
-            localFilePath = Path.Combine(fullPath, "Resource.dat");
+            localFilePath = Path.Combine(fullPath, "data.db");
             localVersionFilePath = Path.Combine(fullPath, "resource_version.txt");
 
             // Debug! 
@@ -91,6 +91,8 @@ namespace NMX
 
             LoginUI.Instance.ActiveLoginPanel(true);
             LoginUI.Instance.GameVersionTxt.text = "Version " + File.ReadAllText(localVersionFilePath) ;
+
+            LocalStorageManager.Instance.Initialize();
 
 
             // โหลด resource เพื่อใช้ในเกม
