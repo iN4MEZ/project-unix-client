@@ -123,7 +123,6 @@ namespace NMX
             foreach (var rspData in rsp.AvatarList)
             {
                 manager.Avatars.Add(new AvatarData { AvatarID = rspData.Id });
-                Debug.Log("Added! :" + rspData.Id);
             }
 
             await Task.CompletedTask;
@@ -166,7 +165,7 @@ namespace NMX
         {
             PlayerEnterSceneNotify rsp = packet.DecodeBody<PlayerEnterSceneNotify>();
 
-            GameSceneManager.Instance.EnterSceneAsync(rsp.SceneInfo.SceneId, new Vector3(rsp.SceneInfo.InitPos.X, rsp.SceneInfo.InitPos.Y, rsp.SceneInfo.InitPos.Z));
+            GameSceneManager.Instance.EnterSceneAsync(rsp.SceneInfo);
 
             await Task.CompletedTask;
         }

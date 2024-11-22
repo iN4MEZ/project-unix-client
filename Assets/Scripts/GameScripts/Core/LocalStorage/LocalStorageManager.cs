@@ -23,88 +23,23 @@ namespace NMX
             // กำหนดเส้นทางไปยังไฟล์ .db ใน StreamingAssets
             dbPath = $"URI=file:{Application.dataPath}/ResourceData/data.db";
         }
-        void LoadData()
-        {
-            // เปิดการเชื่อมต่อ
-            using (IDbConnection dbConnection = new SqliteConnection(dbPath))
-            {
-                dbConnection.Open();
-
-                // สร้างคำสั่ง SQL
-                IDbCommand dbCommand = dbConnection.CreateCommand();
-                dbCommand.CommandText = "SELECT * FROM AvatarData";
-
-                // อ่านข้อมูล
-                using (IDataReader reader = dbCommand.ExecuteReader())
-                {
-                    while (reader.Read())
-                    {
-                        int id = reader.GetInt32(0);
-                        string resourcePath = reader.GetString(1);
-
-                        Debug.Log($"ID: {id}, Path: {resourcePath}");
-                    }
-                }
-            }
-        }
-
-        public AvatarData GetAvatarData()
-        {
-            try
-            {
-                // เปิดการเชื่อมต่อ
-                using (IDbConnection dbConnection = new SqliteConnection(dbPath))
-                {
-                    dbConnection.Open();
-
-                    // สร้างคำสั่ง SQL
-                    IDbCommand dbCommand = dbConnection.CreateCommand();
-                    dbCommand.CommandText = "SELECT * FROM AvatarData";
-
-                    // อ่านข้อมูล
-                    using (IDataReader reader = dbCommand.ExecuteReader())
-                    {
-                        while (reader.Read())
-                        {
-                            int id = reader.GetInt32(0);
-                            string resourcePath = reader.GetString(1);
-
-                            return new AvatarData { AvatarID = (uint)id, ResourcePath = resourcePath };
-                        }
-                    }
-                }
-            } catch (Exception e)
-            {
-                Debug.LogError(e.Message);
-            }
-            return null;
-        }
 
         public AvatarData GetAvatarDataById(uint tid)
         {
             try
             {
-                // เปิดการเชื่อมต่อ
-                using (IDbConnection dbConnection = new SqliteConnection(dbPath))
+                string query = $"SELECT * FROM AvatarData WHERE AvatarID = {tid};";
+                return ExecuteQuery(dbPath, query, reader =>
                 {
-                    dbConnection.Open();
+                    int id = reader.GetInt32(0);
+                    string resourcePath = reader.GetString(1);
 
-                    // สร้างคำสั่ง SQL
-                    IDbCommand dbCommand = dbConnection.CreateCommand();
-                    dbCommand.CommandText = $"SELECT * FROM AvatarData WHERE AvatarID = {(int)tid};";
-
-                    // อ่านข้อมูล
-                    using (IDataReader reader = dbCommand.ExecuteReader())
+                    return new AvatarData
                     {
-                        while (reader.Read())
-                        {
-                            int id = reader.GetInt32(0);
-                            string resourcePath = reader.GetString(1);
-
-                            return new AvatarData { AvatarID = (uint)id, ResourcePath = resourcePath };
-                        }
-                    }
-                }
+                        AvatarID = (uint)id,
+                        ResourcePath = resourcePath
+                    };
+                });
             }
             catch (Exception e)
             {
@@ -112,5 +47,56 @@ namespace NMX
             }
             return null;
         }
+
+        public MonsterData GetMonsterDataById(uint tid)
+        {
+            try
+            {
+                string query = $"SELECT * FROM MonsterData WHERE MonsterID = {tid};";
+                return ExecuteQuery(dbPath, query, reader =>
+                {
+                    int id = reader.GetInt32(0);
+                    string resourcePath = reader.GetString(1);
+
+                    return new MonsterData
+                    {
+                        MonsterID = (uint)id,
+                        ResourcePath = resourcePath
+                    };
+                });
+            }
+            catch (Exception e)
+            {
+                Debug.LogError(e.Message);
+            }
+            return null;
+        }
+
+        public static T ExecuteQuery<T>(string dbPath, string query, Func<IDataReader, T> handleData)
+        {
+            // เปิดการเชื่อมต่อ
+            using (IDbConnection dbConnection = new SqliteConnection(dbPath))
+            {
+                dbConnection.Open();
+
+                // สร้างคำสั่ง SQL
+                using (IDbCommand dbCommand = dbConnection.CreateCommand())
+                {
+                    dbCommand.CommandText = query;
+
+                    // อ่านข้อมูล
+                    using (IDataReader reader = dbCommand.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            // ใช้ delegate handleData ในการจัดการผลลัพธ์
+                            return handleData(reader);
+                        }
+                    }
+                }
+            }
+            return default;
+        }
+
     }
 }

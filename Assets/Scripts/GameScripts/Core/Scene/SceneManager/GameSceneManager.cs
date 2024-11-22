@@ -1,7 +1,9 @@
 ﻿using NMX.GameCore.Network.Client;
 using NMX.GameCore.Network.Protocol;
+using NMX.Protocal;
 using System;
 using System.Collections;
+using System.Security.Cryptography;
 using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -39,8 +41,6 @@ namespace NMX
         {
             Instance = this;
 
-            // Loading UI Enable In Final
-
             LoadingUI = GameObject.FindGameObjectWithTag("LoadingUI");
             Canvas canvasLoadingUi = LoadingUI.GetComponentInChildren<Canvas>();
 
@@ -66,9 +66,14 @@ namespace NMX
             Debug.Log("Initialized Instance GameSceneManager!");
         }
 
-        private void Start()
+        public void RegisterServerDataToSceneEntityData(SceneInfo sceneInfo)
         {
-
+            foreach (EntityInfo entity in sceneInfo.EntityList) {
+                var monsterData = LocalStorageManager.Instance.GetMonsterDataById(entity.Id);
+                if (monsterData != null) {
+                    SceneData.entities.Add(Resources.Load(monsterData.ResourcePath) as GameObject);
+                }
+            }
         }
 
         private async Task InitPlayer(Vector3 InitPos)
@@ -201,10 +206,14 @@ namespace NMX
             LoadOnlyEntityAndObject();
         }
 
-        public async void EnterSceneAsync(uint id,Vector3 initPos)
+        public async void EnterSceneAsync(SceneInfo sceneInfo)
         {
 
-            this.SceneData.Id = id;
+            RegisterServerDataToSceneEntityData(sceneInfo);
+
+            this.SceneData.Id = sceneInfo.SceneId;
+
+            Vector3 initPos = new Vector3(sceneInfo.InitPos.X, sceneInfo.InitPos.Y, sceneInfo.InitPos.Z);
 
             entitiesManager = GetComponentInChildren<EntityManager>();
 
@@ -212,7 +221,7 @@ namespace NMX
 
             PlayerAvatarManager = GetComponentInChildren<PlayerAvatarManager>();
 
-            StartCoroutine(LoadSceneAsync(id,initPos)); // Sv dev
+            StartCoroutine(LoadSceneAsync(sceneInfo.SceneId, initPos)); // Sv dev
 
         }
 
@@ -249,7 +258,7 @@ namespace NMX
 
                 yield return StartCoroutine(Client.NET.clientSession.WaitForPacketProcessed(CmdType.GetAvatarDataRsp));
 
-                Client.NET.SendPacketAsync(GameCore.Network.Protocol.CmdType.EnterScenePostStateReq);
+                StartCoroutine(Client.NET.SendPacketAsyncIEnumerator(CmdType.EnterScenePostStateReq));
 
                 PlayerAvatarManager.LoadServerAvatarData();
 
