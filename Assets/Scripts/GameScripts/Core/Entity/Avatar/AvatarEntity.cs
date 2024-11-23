@@ -28,9 +28,9 @@ namespace NMX
         }
 
 
-        public override void Load(Transform transform)
+        public override void Load(Transform transform, EntityInfo entityInfo)
         {
-            base.Load(transform);
+            base.Load(transform, entityInfo);
 
             var resourceGameObject = Resources.Load(EntityData.ModelPath) as GameObject;
 

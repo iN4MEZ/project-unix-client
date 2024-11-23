@@ -56,7 +56,7 @@ namespace NMX
 
         public void AppearEntityWithDuration(Entity entity,float duration)
         {
-            entity.Load(gameObject.transform);
+            //entity.Load(gameObject.transform);
 
             Destroy(entity.OnLoadResourceGameObject, duration);
         }
@@ -71,7 +71,7 @@ namespace NMX
 
             entitysFactory.Add(ent);
 
-            LoadFactoryEntityIntroGame();
+            //LoadFactoryEntityIntroGame();
         }
 
         public void SetEntityPosition(uint id,Vector3 pos,SetPositionMode setPositionMode)
@@ -111,7 +111,7 @@ namespace NMX
 
 
 
-        public void LoadFactoryEntityIntroGame()
+        public void LoadFactoryEntityIntroGame(EntityInfo entityInfo)
         {
             foreach (var entity in entitysFactory)
             {
@@ -121,7 +121,7 @@ namespace NMX
                     {
                         IEntity ent = entity.GetComponent<IEntity>();
 
-                        ent.Load(entity.transform);
+                        ent.Load(entity.transform, entityInfo);
 
                         Entity entcompo = entity.GetComponent<Entity>();
 

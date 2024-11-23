@@ -4,7 +4,8 @@ using UnityEngine;
 
 namespace NMX
 {
-    public class MonsterData
+    public class MonsterData : EntityData
+
     {
         public uint MonsterID { get; set; }
 

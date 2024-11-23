@@ -1,3 +1,4 @@
+using NMX.Protocal;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -7,7 +8,7 @@ namespace NMX
 {
     public interface IEntity
     {
-        public void Load(Transform transform);
+        public void Load(Transform transform,EntityInfo entityInfo);
 
         public void Create();
     }

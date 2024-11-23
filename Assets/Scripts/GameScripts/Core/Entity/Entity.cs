@@ -28,9 +28,16 @@ namespace NMX
             throw new System.NotImplementedException();
         }
 
-        public virtual void Load(Transform transform)
+        public virtual void Load(Transform transform, EntityInfo entityInfo)
         {
             Debug.Log("Entity ID: " + EntityId + " Type: " + EntityType + " Has Loaded!");
+
+            switch (EntityType) {
+                case EntityType.MONSTER:
+
+
+                    break;
+            }
         }
 
     }

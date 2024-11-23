@@ -174,7 +174,7 @@ namespace NMX
         {
             PlayerChangeSceneNotify rsp = packet.DecodeBody<PlayerChangeSceneNotify>();
 
-            GameSceneManager.Instance.ChangeSceneAsync(rsp.SceneInfo.SceneId, new Vector3(rsp.SceneInfo.InitPos.X, rsp.SceneInfo.InitPos.Y, rsp.SceneInfo.InitPos.Z));
+            GameSceneManager.Instance.ChangeSceneAsync(rsp.SceneInfo);
 
             await Task.CompletedTask;
         }
@@ -182,7 +182,7 @@ namespace NMX
         [Command("changescenecs")]
         private static void ChangeScene(uint id)
         {
-            GameSceneManager.Instance.ChangeSceneAsync(id, new Vector3(0, 0, 0));
+            //GameSceneManager.Instance.ChangeSceneAsync(id, new Vector3(0, 0, 0));
         }
 
 

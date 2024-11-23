@@ -6,7 +6,7 @@ using UnityEngine;
 namespace NMX
 {
     [Serializable]
-    public class AvatarData
+    public class AvatarData : EntityData
     {
         [field: SerializeField] public string AvatarName { get; set; }
 

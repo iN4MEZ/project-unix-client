@@ -61,37 +61,40 @@ namespace NMX.Protocal {
             "ASABKAsyCy5FbnRpdHlJbmZvIh8KClBsYXllclByb3ASEQoJbW92ZVNwZWVk",
             "GAEgASgCIiQKEEdldEF2YXRhckRhdGFSZXESEAoIaXNHZXRBbGwYASABKAgi",
             "MwoQR2V0QXZhdGFyRGF0YVJzcBIfCgphdmF0YXJMaXN0GAIgAygLMgsuQXZh",
-            "dGFyRGF0YSISChBHZXRJbnZlbnRvcnlEYXRhIg4KDEdldFF1ZXN0RGF0YSI0",
+            "dGFyRGF0YSISChBHZXRJbnZlbnRvcnlEYXRhIg4KDEdldFF1ZXN0RGF0YSJX",
             "CgpFbnRpdHlJbmZvEgoKAmlkGAEgASgNEhoKBWVUeXBlGAIgASgOMgsuRW50",
-            "aXR5VHlwZSIZChdFbnRlclNjZW5lUmVhZHlTdGF0ZVJlcSIXChVFbnRlclNj",
-            "ZW5lUHJlU3RhdGVSZXEiGAoWRW50ZXJTY2VuZVBvc3RTdGF0ZVJlcSIaChhF",
-            "bnRlclNjZW5lRmluaXNoU3RhdGVSZXEiEAoOR2V0VGVhbURhdGFSZXEiLQoO",
-            "R2V0VGVhbURhdGFSc3ASGwoIdGVhbUluZm8YASABKAsyCS5UZWFtSW5mbyI+",
-            "CghUZWFtSW5mbxIRCgl0ZWFtSW5kZXgYASABKAUSHwoKYXZhdGFyTGlzdBgC",
-            "IAMoCzILLkF2YXRhckRhdGEiVgoSRW50aXR5QXBwZWFyTm90aWZ5Eh8KCkVu",
-            "dGl0eUxpc3QYASABKAsyCy5FbnRpdHlJbmZvEh8KCmFwcGVhclR5cGUYAiAB",
-            "KA4yCy5BcHBlYXJUeXBlIicKE0NoZXN0SW50ZXJhY3Rpb25SZXESEAoIY2hl",
-            "c3RfaWQYASABKAUiFQoTQ2hlc3RJbnRlcmFjdGlvblJzcCIqChZDaGVzdElu",
-            "dGVyYWN0aW9uTm90aWZ5EhAKCGNoZXN0X2lkGAEgASgNIkYKEkF2YXRhckJp",
-            "blNraWxsSW5mbxIPCgdiYXNlQXRrGAEgASgCEg4KBmJhc2VIcBgCIAEoAhIP",
-            "CgdiYXNlRGVmGAMgASgNImYKCkF2YXRhckRhdGESDAoEbmFtZRgBIAEoCRIK",
-            "CgJpZBgCIAEoDRIaCgVlSW5mbxgDIAEoCzILLkVudGl0eUluZm8SIgoFc0lu",
-            "Zm8YBCABKAsyEy5BdmF0YXJCaW5Ta2lsbEluZm8iKQoGVmVjdG9yEgkKAXgY",
-            "ASABKAISCQoBeRgCIAEoAhIJCgF6GAMgASgCIjYKCFJvdGF0aW9uEgkKAXEY",
-            "ASABKAISCQoBeBgCIAEoAhIJCgF5GAMgASgCEgkKAXoYBCABKAIiKAoSUGxh",
-            "eWVyQnJlYXRoaW5nUmVxEhIKCkNsaWVudFRpbWUYASABKA0iKAoSUGxheWVy",
-            "QnJlYXRoaW5nUnNwEhIKClNlcnZlclRpbWUYASABKA0iOgoUUGxheWVyUG9z",
-            "aXRpb25Ob3RpZnkSFAoDcG9zGAEgASgLMgcuVmVjdG9yEgwKBGNvZGUYAiAB",
-            "KA0iEgoQQ2xpZW50SW5pdE5vdGlmeSJvCh1TY2VuZUVudGl0eU1vdmluZ1Vw",
-            "ZGF0ZU5vdGlmeRIaCgVlSW5mbxgBIAEoCzILLkVudGl0eUluZm8SFwoGbmV3",
-            "UG9zGAIgASgLMgcuVmVjdG9yEhkKBm5ld1JvdBgDIAEoCzIJLlJvdGF0aW9u",
-            "KkQKC0VudGVyUmVhc29uEg4KCkVOVEVSX1NFTEYQABIPCgtSRUpPSU5fU0VM",
-            "RhABEhQKEFJFUVVFU1RfVE9fT1RIRVIQAiouCgpFbnRpdHlUeXBlEgsKB01P",
-            "TlNURVIQABIKCgZBVkFUQVIQARIHCgNOUEMQAipOChNFbnRlclNjZW5lU3Rh",
-            "dGVJbmZvEggKBE5vbmUQABIJCgVSRUFEWRABEgcKA1BSRRACEggKBFBPU1QQ",
-            "AxIPCgtFTlRFUkZJTklTSBAEKjAKCkFwcGVhclR5cGUSDwoLQVBQRUFSX0JP",
-            "Uk4QABIRCg1BUFBFQVJfUkVNT1ZFEAFCD6oCDE5NWC5Qcm90b2NhbGIGcHJv",
-            "dG8z"));
+            "aXR5VHlwZRIhCgZhcEluZm8YBSABKAsyES5FbnRpdHlBcHBlYXJJbmZvIhkK",
+            "F0VudGVyU2NlbmVSZWFkeVN0YXRlUmVxIhcKFUVudGVyU2NlbmVQcmVTdGF0",
+            "ZVJlcSIYChZFbnRlclNjZW5lUG9zdFN0YXRlUmVxIhoKGEVudGVyU2NlbmVG",
+            "aW5pc2hTdGF0ZVJlcSIQCg5HZXRUZWFtRGF0YVJlcSItCg5HZXRUZWFtRGF0",
+            "YVJzcBIbCgh0ZWFtSW5mbxgBIAEoCzIJLlRlYW1JbmZvIj4KCFRlYW1JbmZv",
+            "EhEKCXRlYW1JbmRleBgBIAEoBRIfCgphdmF0YXJMaXN0GAIgAygLMgsuQXZh",
+            "dGFyRGF0YSI1ChJFbnRpdHlBcHBlYXJOb3RpZnkSHwoKRW50aXR5TGlzdBgB",
+            "IAEoCzILLkVudGl0eUluZm8iaQoQRW50aXR5QXBwZWFySW5mbxIYCgdpbml0",
+            "UG9zGAEgASgLMgcuVmVjdG9yEhoKB2luaXRSb3QYAiABKAsyCS5Sb3RhdGlv",
+            "bhIfCgpBcHBlYXJUeXBlGAMgASgOMgsuQXBwZWFyVHlwZSInChNDaGVzdElu",
+            "dGVyYWN0aW9uUmVxEhAKCGNoZXN0X2lkGAEgASgFIhUKE0NoZXN0SW50ZXJh",
+            "Y3Rpb25Sc3AiKgoWQ2hlc3RJbnRlcmFjdGlvbk5vdGlmeRIQCghjaGVzdF9p",
+            "ZBgBIAEoDSJGChJBdmF0YXJCaW5Ta2lsbEluZm8SDwoHYmFzZUF0axgBIAEo",
+            "AhIOCgZiYXNlSHAYAiABKAISDwoHYmFzZURlZhgDIAEoDSKJAQoKQXZhdGFy",
+            "RGF0YRIMCgRuYW1lGAEgASgJEgoKAmlkGAIgASgNEhoKBWVJbmZvGAMgASgL",
+            "MgsuRW50aXR5SW5mbxIiCgVzSW5mbxgEIAEoCzITLkF2YXRhckJpblNraWxs",
+            "SW5mbxIhCgZhcEluZm8YBSABKAsyES5FbnRpdHlBcHBlYXJJbmZvIikKBlZl",
+            "Y3RvchIJCgF4GAEgASgCEgkKAXkYAiABKAISCQoBehgDIAEoAiI2CghSb3Rh",
+            "dGlvbhIJCgFxGAEgASgCEgkKAXgYAiABKAISCQoBeRgDIAEoAhIJCgF6GAQg",
+            "ASgCIigKElBsYXllckJyZWF0aGluZ1JlcRISCgpDbGllbnRUaW1lGAEgASgN",
+            "IigKElBsYXllckJyZWF0aGluZ1JzcBISCgpTZXJ2ZXJUaW1lGAEgASgNIjoK",
+            "FFBsYXllclBvc2l0aW9uTm90aWZ5EhQKA3BvcxgBIAEoCzIHLlZlY3RvchIM",
+            "CgRjb2RlGAIgASgNIhIKEENsaWVudEluaXROb3RpZnkibwodU2NlbmVFbnRp",
+            "dHlNb3ZpbmdVcGRhdGVOb3RpZnkSGgoFZUluZm8YASABKAsyCy5FbnRpdHlJ",
+            "bmZvEhcKBm5ld1BvcxgCIAEoCzIHLlZlY3RvchIZCgZuZXdSb3QYAyABKAsy",
+            "CS5Sb3RhdGlvbipECgtFbnRlclJlYXNvbhIOCgpFTlRFUl9TRUxGEAASDwoL",
+            "UkVKT0lOX1NFTEYQARIUChBSRVFVRVNUX1RPX09USEVSEAIqLgoKRW50aXR5",
+            "VHlwZRILCgdNT05TVEVSEAASCgoGQVZBVEFSEAESBwoDTlBDEAIqTgoTRW50",
+            "ZXJTY2VuZVN0YXRlSW5mbxIICgROb25lEAASCQoFUkVBRFkQARIHCgNQUkUQ",
+            "AhIICgRQT1NUEAMSDwoLRU5URVJGSU5JU0gQBCowCgpBcHBlYXJUeXBlEg8K",
+            "C0FQUEVBUl9CT1JOEAASEQoNQVBQRUFSX1JFTU9WRRABQg+qAgxOTVguUHJv",
+            "dG9jYWxiBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(new[] {typeof(global::NMX.Protocal.EnterReason), typeof(global::NMX.Protocal.EntityType), typeof(global::NMX.Protocal.EnterSceneStateInfo), typeof(global::NMX.Protocal.AppearType), }, null, new pbr::GeneratedClrTypeInfo[] {
@@ -131,7 +134,7 @@ namespace NMX.Protocal {
             new pbr::GeneratedClrTypeInfo(typeof(global::NMX.Protocal.GetAvatarDataRsp), global::NMX.Protocal.GetAvatarDataRsp.Parser, new[]{ "AvatarList" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::NMX.Protocal.GetInventoryData), global::NMX.Protocal.GetInventoryData.Parser, null, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::NMX.Protocal.GetQuestData), global::NMX.Protocal.GetQuestData.Parser, null, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::NMX.Protocal.EntityInfo), global::NMX.Protocal.EntityInfo.Parser, new[]{ "Id", "EType" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::NMX.Protocal.EntityInfo), global::NMX.Protocal.EntityInfo.Parser, new[]{ "Id", "EType", "ApInfo" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::NMX.Protocal.EnterSceneReadyStateReq), global::NMX.Protocal.EnterSceneReadyStateReq.Parser, null, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::NMX.Protocal.EnterScenePreStateReq), global::NMX.Protocal.EnterScenePreStateReq.Parser, null, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::NMX.Protocal.EnterScenePostStateReq), global::NMX.Protocal.EnterScenePostStateReq.Parser, null, null, null, null, null),
@@ -139,12 +142,13 @@ namespace NMX.Protocal {
             new pbr::GeneratedClrTypeInfo(typeof(global::NMX.Protocal.GetTeamDataReq), global::NMX.Protocal.GetTeamDataReq.Parser, null, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::NMX.Protocal.GetTeamDataRsp), global::NMX.Protocal.GetTeamDataRsp.Parser, new[]{ "TeamInfo" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::NMX.Protocal.TeamInfo), global::NMX.Protocal.TeamInfo.Parser, new[]{ "TeamIndex", "AvatarList" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::NMX.Protocal.EntityAppearNotify), global::NMX.Protocal.EntityAppearNotify.Parser, new[]{ "EntityList", "AppearType" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::NMX.Protocal.EntityAppearNotify), global::NMX.Protocal.EntityAppearNotify.Parser, new[]{ "EntityList" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::NMX.Protocal.EntityAppearInfo), global::NMX.Protocal.EntityAppearInfo.Parser, new[]{ "InitPos", "InitRot", "AppearType" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::NMX.Protocal.ChestInteractionReq), global::NMX.Protocal.ChestInteractionReq.Parser, new[]{ "ChestId" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::NMX.Protocal.ChestInteractionRsp), global::NMX.Protocal.ChestInteractionRsp.Parser, null, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::NMX.Protocal.ChestInteractionNotify), global::NMX.Protocal.ChestInteractionNotify.Parser, new[]{ "ChestId" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::NMX.Protocal.AvatarBinSkillInfo), global::NMX.Protocal.AvatarBinSkillInfo.Parser, new[]{ "BaseAtk", "BaseHp", "BaseDef" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::NMX.Protocal.AvatarData), global::NMX.Protocal.AvatarData.Parser, new[]{ "Name", "Id", "EInfo", "SInfo" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::NMX.Protocal.AvatarData), global::NMX.Protocal.AvatarData.Parser, new[]{ "Name", "Id", "EInfo", "SInfo", "ApInfo" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::NMX.Protocal.Vector), global::NMX.Protocal.Vector.Parser, new[]{ "X", "Y", "Z" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::NMX.Protocal.Rotation), global::NMX.Protocal.Rotation.Parser, new[]{ "Q", "X", "Y", "Z" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::NMX.Protocal.PlayerBreathingReq), global::NMX.Protocal.PlayerBreathingReq.Parser, new[]{ "ClientTime" }, null, null, null, null),
@@ -7537,6 +7541,7 @@ namespace NMX.Protocal {
     public EntityInfo(EntityInfo other) : this() {
       id_ = other.id_;
       eType_ = other.eType_;
+      apInfo_ = other.apInfo_ != null ? other.apInfo_.Clone() : null;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -7570,6 +7575,18 @@ namespace NMX.Protocal {
       }
     }
 
+    /// <summary>Field number for the "apInfo" field.</summary>
+    public const int ApInfoFieldNumber = 5;
+    private global::NMX.Protocal.EntityAppearInfo apInfo_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::NMX.Protocal.EntityAppearInfo ApInfo {
+      get { return apInfo_; }
+      set {
+        apInfo_ = value;
+      }
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
@@ -7587,6 +7604,7 @@ namespace NMX.Protocal {
       }
       if (Id != other.Id) return false;
       if (EType != other.EType) return false;
+      if (!object.Equals(ApInfo, other.ApInfo)) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -7596,6 +7614,7 @@ namespace NMX.Protocal {
       int hash = 1;
       if (Id != 0) hash ^= Id.GetHashCode();
       if (EType != global::NMX.Protocal.EntityType.Monster) hash ^= EType.GetHashCode();
+      if (apInfo_ != null) hash ^= ApInfo.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -7622,6 +7641,10 @@ namespace NMX.Protocal {
         output.WriteRawTag(16);
         output.WriteEnum((int) EType);
       }
+      if (apInfo_ != null) {
+        output.WriteRawTag(42);
+        output.WriteMessage(ApInfo);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -7640,6 +7663,10 @@ namespace NMX.Protocal {
         output.WriteRawTag(16);
         output.WriteEnum((int) EType);
       }
+      if (apInfo_ != null) {
+        output.WriteRawTag(42);
+        output.WriteMessage(ApInfo);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -7655,6 +7682,9 @@ namespace NMX.Protocal {
       }
       if (EType != global::NMX.Protocal.EntityType.Monster) {
         size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) EType);
+      }
+      if (apInfo_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(ApInfo);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -7673,6 +7703,12 @@ namespace NMX.Protocal {
       }
       if (other.EType != global::NMX.Protocal.EntityType.Monster) {
         EType = other.EType;
+      }
+      if (other.apInfo_ != null) {
+        if (apInfo_ == null) {
+          ApInfo = new global::NMX.Protocal.EntityAppearInfo();
+        }
+        ApInfo.MergeFrom(other.ApInfo);
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -7697,6 +7733,13 @@ namespace NMX.Protocal {
             EType = (global::NMX.Protocal.EntityType) input.ReadEnum();
             break;
           }
+          case 42: {
+            if (apInfo_ == null) {
+              ApInfo = new global::NMX.Protocal.EntityAppearInfo();
+            }
+            input.ReadMessage(ApInfo);
+            break;
+          }
         }
       }
     #endif
@@ -7718,6 +7761,13 @@ namespace NMX.Protocal {
           }
           case 16: {
             EType = (global::NMX.Protocal.EntityType) input.ReadEnum();
+            break;
+          }
+          case 42: {
+            if (apInfo_ == null) {
+              ApInfo = new global::NMX.Protocal.EntityAppearInfo();
+            }
+            input.ReadMessage(ApInfo);
             break;
           }
         }
@@ -8943,7 +8993,6 @@ namespace NMX.Protocal {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public EntityAppearNotify(EntityAppearNotify other) : this() {
       entityList_ = other.entityList_ != null ? other.entityList_.Clone() : null;
-      appearType_ = other.appearType_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -8965,18 +9014,6 @@ namespace NMX.Protocal {
       }
     }
 
-    /// <summary>Field number for the "appearType" field.</summary>
-    public const int AppearTypeFieldNumber = 2;
-    private global::NMX.Protocal.AppearType appearType_ = global::NMX.Protocal.AppearType.AppearBorn;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::NMX.Protocal.AppearType AppearType {
-      get { return appearType_; }
-      set {
-        appearType_ = value;
-      }
-    }
-
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
@@ -8993,7 +9030,6 @@ namespace NMX.Protocal {
         return true;
       }
       if (!object.Equals(EntityList, other.EntityList)) return false;
-      if (AppearType != other.AppearType) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -9002,7 +9038,6 @@ namespace NMX.Protocal {
     public override int GetHashCode() {
       int hash = 1;
       if (entityList_ != null) hash ^= EntityList.GetHashCode();
-      if (AppearType != global::NMX.Protocal.AppearType.AppearBorn) hash ^= AppearType.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -9025,10 +9060,6 @@ namespace NMX.Protocal {
         output.WriteRawTag(10);
         output.WriteMessage(EntityList);
       }
-      if (AppearType != global::NMX.Protocal.AppearType.AppearBorn) {
-        output.WriteRawTag(16);
-        output.WriteEnum((int) AppearType);
-      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -9043,10 +9074,6 @@ namespace NMX.Protocal {
         output.WriteRawTag(10);
         output.WriteMessage(EntityList);
       }
-      if (AppearType != global::NMX.Protocal.AppearType.AppearBorn) {
-        output.WriteRawTag(16);
-        output.WriteEnum((int) AppearType);
-      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -9059,9 +9086,6 @@ namespace NMX.Protocal {
       int size = 0;
       if (entityList_ != null) {
         size += 1 + pb::CodedOutputStream.ComputeMessageSize(EntityList);
-      }
-      if (AppearType != global::NMX.Protocal.AppearType.AppearBorn) {
-        size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) AppearType);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -9080,9 +9104,6 @@ namespace NMX.Protocal {
           EntityList = new global::NMX.Protocal.EntityInfo();
         }
         EntityList.MergeFrom(other.EntityList);
-      }
-      if (other.AppearType != global::NMX.Protocal.AppearType.AppearBorn) {
-        AppearType = other.AppearType;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -9104,10 +9125,6 @@ namespace NMX.Protocal {
               EntityList = new global::NMX.Protocal.EntityInfo();
             }
             input.ReadMessage(EntityList);
-            break;
-          }
-          case 16: {
-            AppearType = (global::NMX.Protocal.AppearType) input.ReadEnum();
             break;
           }
         }
@@ -9132,7 +9149,285 @@ namespace NMX.Protocal {
             input.ReadMessage(EntityList);
             break;
           }
-          case 16: {
+        }
+      }
+    }
+    #endif
+
+  }
+
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
+  public sealed partial class EntityAppearInfo : pb::IMessage<EntityAppearInfo>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<EntityAppearInfo> _parser = new pb::MessageParser<EntityAppearInfo>(() => new EntityAppearInfo());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pb::MessageParser<EntityAppearInfo> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::NMX.Protocal.ProtocolReflection.Descriptor.MessageTypes[45]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public EntityAppearInfo() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public EntityAppearInfo(EntityAppearInfo other) : this() {
+      initPos_ = other.initPos_ != null ? other.initPos_.Clone() : null;
+      initRot_ = other.initRot_ != null ? other.initRot_.Clone() : null;
+      appearType_ = other.appearType_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public EntityAppearInfo Clone() {
+      return new EntityAppearInfo(this);
+    }
+
+    /// <summary>Field number for the "initPos" field.</summary>
+    public const int InitPosFieldNumber = 1;
+    private global::NMX.Protocal.Vector initPos_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::NMX.Protocal.Vector InitPos {
+      get { return initPos_; }
+      set {
+        initPos_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "initRot" field.</summary>
+    public const int InitRotFieldNumber = 2;
+    private global::NMX.Protocal.Rotation initRot_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::NMX.Protocal.Rotation InitRot {
+      get { return initRot_; }
+      set {
+        initRot_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "AppearType" field.</summary>
+    public const int AppearTypeFieldNumber = 3;
+    private global::NMX.Protocal.AppearType appearType_ = global::NMX.Protocal.AppearType.AppearBorn;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::NMX.Protocal.AppearType AppearType {
+      get { return appearType_; }
+      set {
+        appearType_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override bool Equals(object other) {
+      return Equals(other as EntityAppearInfo);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool Equals(EntityAppearInfo other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (!object.Equals(InitPos, other.InitPos)) return false;
+      if (!object.Equals(InitRot, other.InitRot)) return false;
+      if (AppearType != other.AppearType) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (initPos_ != null) hash ^= InitPos.GetHashCode();
+      if (initRot_ != null) hash ^= InitRot.GetHashCode();
+      if (AppearType != global::NMX.Protocal.AppearType.AppearBorn) hash ^= AppearType.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      if (initPos_ != null) {
+        output.WriteRawTag(10);
+        output.WriteMessage(InitPos);
+      }
+      if (initRot_ != null) {
+        output.WriteRawTag(18);
+        output.WriteMessage(InitRot);
+      }
+      if (AppearType != global::NMX.Protocal.AppearType.AppearBorn) {
+        output.WriteRawTag(24);
+        output.WriteEnum((int) AppearType);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (initPos_ != null) {
+        output.WriteRawTag(10);
+        output.WriteMessage(InitPos);
+      }
+      if (initRot_ != null) {
+        output.WriteRawTag(18);
+        output.WriteMessage(InitRot);
+      }
+      if (AppearType != global::NMX.Protocal.AppearType.AppearBorn) {
+        output.WriteRawTag(24);
+        output.WriteEnum((int) AppearType);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int CalculateSize() {
+      int size = 0;
+      if (initPos_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(InitPos);
+      }
+      if (initRot_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(InitRot);
+      }
+      if (AppearType != global::NMX.Protocal.AppearType.AppearBorn) {
+        size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) AppearType);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(EntityAppearInfo other) {
+      if (other == null) {
+        return;
+      }
+      if (other.initPos_ != null) {
+        if (initPos_ == null) {
+          InitPos = new global::NMX.Protocal.Vector();
+        }
+        InitPos.MergeFrom(other.InitPos);
+      }
+      if (other.initRot_ != null) {
+        if (initRot_ == null) {
+          InitRot = new global::NMX.Protocal.Rotation();
+        }
+        InitRot.MergeFrom(other.InitRot);
+      }
+      if (other.AppearType != global::NMX.Protocal.AppearType.AppearBorn) {
+        AppearType = other.AppearType;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 10: {
+            if (initPos_ == null) {
+              InitPos = new global::NMX.Protocal.Vector();
+            }
+            input.ReadMessage(InitPos);
+            break;
+          }
+          case 18: {
+            if (initRot_ == null) {
+              InitRot = new global::NMX.Protocal.Rotation();
+            }
+            input.ReadMessage(InitRot);
+            break;
+          }
+          case 24: {
+            AppearType = (global::NMX.Protocal.AppearType) input.ReadEnum();
+            break;
+          }
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 10: {
+            if (initPos_ == null) {
+              InitPos = new global::NMX.Protocal.Vector();
+            }
+            input.ReadMessage(InitPos);
+            break;
+          }
+          case 18: {
+            if (initRot_ == null) {
+              InitRot = new global::NMX.Protocal.Rotation();
+            }
+            input.ReadMessage(InitRot);
+            break;
+          }
+          case 24: {
             AppearType = (global::NMX.Protocal.AppearType) input.ReadEnum();
             break;
           }
@@ -9158,7 +9453,7 @@ namespace NMX.Protocal {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::NMX.Protocal.ProtocolReflection.Descriptor.MessageTypes[45]; }
+      get { return global::NMX.Protocal.ProtocolReflection.Descriptor.MessageTypes[46]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -9348,7 +9643,7 @@ namespace NMX.Protocal {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::NMX.Protocal.ProtocolReflection.Descriptor.MessageTypes[46]; }
+      get { return global::NMX.Protocal.ProtocolReflection.Descriptor.MessageTypes[47]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -9501,7 +9796,7 @@ namespace NMX.Protocal {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::NMX.Protocal.ProtocolReflection.Descriptor.MessageTypes[47]; }
+      get { return global::NMX.Protocal.ProtocolReflection.Descriptor.MessageTypes[48]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -9691,7 +9986,7 @@ namespace NMX.Protocal {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::NMX.Protocal.ProtocolReflection.Descriptor.MessageTypes[48]; }
+      get { return global::NMX.Protocal.ProtocolReflection.Descriptor.MessageTypes[49]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -9955,7 +10250,7 @@ namespace NMX.Protocal {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::NMX.Protocal.ProtocolReflection.Descriptor.MessageTypes[49]; }
+      get { return global::NMX.Protocal.ProtocolReflection.Descriptor.MessageTypes[50]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -9979,6 +10274,7 @@ namespace NMX.Protocal {
       id_ = other.id_;
       eInfo_ = other.eInfo_ != null ? other.eInfo_.Clone() : null;
       sInfo_ = other.sInfo_ != null ? other.sInfo_.Clone() : null;
+      apInfo_ = other.apInfo_ != null ? other.apInfo_.Clone() : null;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -10036,6 +10332,18 @@ namespace NMX.Protocal {
       }
     }
 
+    /// <summary>Field number for the "apInfo" field.</summary>
+    public const int ApInfoFieldNumber = 5;
+    private global::NMX.Protocal.EntityAppearInfo apInfo_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::NMX.Protocal.EntityAppearInfo ApInfo {
+      get { return apInfo_; }
+      set {
+        apInfo_ = value;
+      }
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
@@ -10055,6 +10363,7 @@ namespace NMX.Protocal {
       if (Id != other.Id) return false;
       if (!object.Equals(EInfo, other.EInfo)) return false;
       if (!object.Equals(SInfo, other.SInfo)) return false;
+      if (!object.Equals(ApInfo, other.ApInfo)) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -10066,6 +10375,7 @@ namespace NMX.Protocal {
       if (Id != 0) hash ^= Id.GetHashCode();
       if (eInfo_ != null) hash ^= EInfo.GetHashCode();
       if (sInfo_ != null) hash ^= SInfo.GetHashCode();
+      if (apInfo_ != null) hash ^= ApInfo.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -10100,6 +10410,10 @@ namespace NMX.Protocal {
         output.WriteRawTag(34);
         output.WriteMessage(SInfo);
       }
+      if (apInfo_ != null) {
+        output.WriteRawTag(42);
+        output.WriteMessage(ApInfo);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -10126,6 +10440,10 @@ namespace NMX.Protocal {
         output.WriteRawTag(34);
         output.WriteMessage(SInfo);
       }
+      if (apInfo_ != null) {
+        output.WriteRawTag(42);
+        output.WriteMessage(ApInfo);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -10147,6 +10465,9 @@ namespace NMX.Protocal {
       }
       if (sInfo_ != null) {
         size += 1 + pb::CodedOutputStream.ComputeMessageSize(SInfo);
+      }
+      if (apInfo_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(ApInfo);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -10177,6 +10498,12 @@ namespace NMX.Protocal {
           SInfo = new global::NMX.Protocal.AvatarBinSkillInfo();
         }
         SInfo.MergeFrom(other.SInfo);
+      }
+      if (other.apInfo_ != null) {
+        if (apInfo_ == null) {
+          ApInfo = new global::NMX.Protocal.EntityAppearInfo();
+        }
+        ApInfo.MergeFrom(other.ApInfo);
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -10213,6 +10540,13 @@ namespace NMX.Protocal {
               SInfo = new global::NMX.Protocal.AvatarBinSkillInfo();
             }
             input.ReadMessage(SInfo);
+            break;
+          }
+          case 42: {
+            if (apInfo_ == null) {
+              ApInfo = new global::NMX.Protocal.EntityAppearInfo();
+            }
+            input.ReadMessage(ApInfo);
             break;
           }
         }
@@ -10252,6 +10586,13 @@ namespace NMX.Protocal {
             input.ReadMessage(SInfo);
             break;
           }
+          case 42: {
+            if (apInfo_ == null) {
+              ApInfo = new global::NMX.Protocal.EntityAppearInfo();
+            }
+            input.ReadMessage(ApInfo);
+            break;
+          }
         }
       }
     }
@@ -10274,7 +10615,7 @@ namespace NMX.Protocal {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::NMX.Protocal.ProtocolReflection.Descriptor.MessageTypes[50]; }
+      get { return global::NMX.Protocal.ProtocolReflection.Descriptor.MessageTypes[51]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -10538,7 +10879,7 @@ namespace NMX.Protocal {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::NMX.Protocal.ProtocolReflection.Descriptor.MessageTypes[51]; }
+      get { return global::NMX.Protocal.ProtocolReflection.Descriptor.MessageTypes[52]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -10839,7 +11180,7 @@ namespace NMX.Protocal {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::NMX.Protocal.ProtocolReflection.Descriptor.MessageTypes[52]; }
+      get { return global::NMX.Protocal.ProtocolReflection.Descriptor.MessageTypes[53]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -11029,7 +11370,7 @@ namespace NMX.Protocal {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::NMX.Protocal.ProtocolReflection.Descriptor.MessageTypes[53]; }
+      get { return global::NMX.Protocal.ProtocolReflection.Descriptor.MessageTypes[54]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -11219,7 +11560,7 @@ namespace NMX.Protocal {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::NMX.Protocal.ProtocolReflection.Descriptor.MessageTypes[54]; }
+      get { return global::NMX.Protocal.ProtocolReflection.Descriptor.MessageTypes[55]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -11455,7 +11796,7 @@ namespace NMX.Protocal {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::NMX.Protocal.ProtocolReflection.Descriptor.MessageTypes[55]; }
+      get { return global::NMX.Protocal.ProtocolReflection.Descriptor.MessageTypes[56]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -11608,7 +11949,7 @@ namespace NMX.Protocal {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::NMX.Protocal.ProtocolReflection.Descriptor.MessageTypes[56]; }
+      get { return global::NMX.Protocal.ProtocolReflection.Descriptor.MessageTypes[57]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]

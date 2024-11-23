@@ -12,9 +12,9 @@ namespace NMX
             EntityType = EntityType.EFFOBJECT;
         }
 
-        public override void Load(Transform transform)
+        public override void Load(Transform transform, EntityInfo entityInfo)
         {
-            base.Load(transform);
+            base.Load(transform, entityInfo);
 
             var resourceGameObject = Resources.Load("NMX/Assets/Entitys/Avatar/Prefabs/Models/Elysia/Avatar_Elysia_C2_MC_OW") as GameObject;
 

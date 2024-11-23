@@ -1,14 +1,13 @@
-using System.Collections;
-using System.Collections.Generic;
+using NMX.Protocal;
 using UnityEngine;
 
 namespace NMX
 {
     public class ChestObject : Entity
     {
-        public override void Load(Transform transform)
+        public override void Load(Transform transform, EntityInfo entityInfo)
         {
-            base.Load(transform);
+            base.Load(transform,entityInfo);
 
             transform.position = new Vector3(9, 1, 9);
 

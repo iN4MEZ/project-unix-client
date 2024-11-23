@@ -3,9 +3,11 @@ using NMX.GameCore.Network.Protocol;
 using NMX.Protocal;
 using System;
 using System.Collections;
+using System.Linq;
 using System.Security.Cryptography;
 using System.Threading.Tasks;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -41,6 +43,10 @@ namespace NMX
         {
             Instance = this;
 
+            SceneData = new SceneData();
+
+            SceneData.Initialize();
+
             LoadingUI = GameObject.FindGameObjectWithTag("LoadingUI");
             Canvas canvasLoadingUi = LoadingUI.GetComponentInChildren<Canvas>();
 
@@ -71,7 +77,12 @@ namespace NMX
             foreach (EntityInfo entity in sceneInfo.EntityList) {
                 var monsterData = LocalStorageManager.Instance.GetMonsterDataById(entity.Id);
                 if (monsterData != null) {
-                    SceneData.entities.Add(Resources.Load(monsterData.ResourcePath) as GameObject);
+
+                    monsterData.BornInitPos = new Vector3(entity.ApInfo.InitPos.X, entity.ApInfo.InitPos.Y, entity.ApInfo.InitPos.Z);
+
+                    GameObject loadedObject = Resources.Load(monsterData.ResourcePath) as GameObject;
+
+                    SceneData.entities[monsterData] = loadedObject;
                 }
             }
         }
@@ -122,11 +133,11 @@ namespace NMX
 
         }
 
-        public void LoadEntityAndObject()
+        public void LoadEntityAndObject(EntityInfo entityInfo)
         {
             InstatiateEntity();
 
-            entitiesManager.LoadFactoryEntityIntroGame();
+            entitiesManager.LoadFactoryEntityIntroGame(entityInfo);
 
             foreach(var avatar in PlayerAvatarManager.AvatarOnLoadData)
             {
@@ -142,9 +153,9 @@ namespace NMX
             {
                 Destroy(ensTrans.gameObject);
             }
-            foreach (var entity in SceneData.entities)
+            foreach (var entity in SceneData.entities.Values)
             {
-                var index = Instantiate(entity, EntityElement.transform);
+                var index = Instantiate(entity, Vector3.zero, Quaternion.identity, EntityElement.transform);
 
                 entitiesManager.AddEntityGameObjectToFactory(index);
             }
@@ -155,7 +166,7 @@ namespace NMX
                 entitiesManager.AddEntityGameObjectToFactory(index);
             }
 
-            entitiesManager.LoadFactoryEntityIntroGame();
+            //entitiesManager.LoadFactoryEntityIntroGame();
 
         }
 
@@ -176,12 +187,16 @@ namespace NMX
                 PlayerAvatarManager.InitAvatar();
             }
 
-            foreach (var entity in SceneData.entities)
+            for (int i = 0; i < SceneData.entities.Values.Count; i++)
             {
-                var index = Instantiate(entity, EntityElement.transform);
+                var entity = SceneData.entities.Values.ElementAt(i);
+                var entityData = SceneData.entities.Keys.ElementAt(i);
+                var index = Instantiate(entity, entityData.BornInitPos, Quaternion.identity, EntityElement.transform);
+
 
                 entitiesManager.AddEntityGameObjectToFactory(index);
             }
+
             foreach (var chestObject in SceneData.chestObjects)
             {
                 var index = Instantiate(chestObject, EntityElement.transform);
@@ -190,15 +205,17 @@ namespace NMX
             }
         }
 
-        public async void ChangeSceneAsync(uint id, Vector3 initPos)
+        public async void ChangeSceneAsync(SceneInfo sceneInfo)
         {
 
             await Client.NET.SendPacketAsync(CmdType.EnterScenePreStateReq);
 
             entitiesManager.entities.Clear();
 
-            this.SceneData.Id = id;
-            StartCoroutine(LoadSceneAsync(id, initPos)); // Sv dev
+            this.SceneData.Id = sceneInfo.SceneId;
+            StartCoroutine(LoadSceneAsync(sceneInfo)); // Sv dev
+
+            Vector3 initPos = new Vector3(sceneInfo.InitPos.X, sceneInfo.InitPos.Y, sceneInfo.InitPos.Z);
 
             Client.instance.Player.Rigidbody.MovePosition(initPos);
 
@@ -221,7 +238,7 @@ namespace NMX
 
             PlayerAvatarManager = GetComponentInChildren<PlayerAvatarManager>();
 
-            StartCoroutine(LoadSceneAsync(sceneInfo.SceneId, initPos)); // Sv dev
+            StartCoroutine(LoadSceneAsync(sceneInfo)); // Sv dev
 
         }
 
@@ -237,14 +254,14 @@ namespace NMX
 
         }
 
-        private IEnumerator LoadSceneAsync(uint id, Vector3 initPos)
+        private IEnumerator LoadSceneAsync(SceneInfo sceneInfo)
         {
 
-            if (SceneManager.GetActiveScene().buildIndex != id) {
+            if (SceneManager.GetActiveScene().buildIndex != sceneInfo.SceneId) {
 
                 LoadingUI.gameObject.SetActive(true);
 
-                currentLoadingSceneAsyncOp = SceneManager.LoadSceneAsync((int)id);
+                currentLoadingSceneAsyncOp = SceneManager.LoadSceneAsync((int)sceneInfo.SceneId);
 
                 SendRequestAvatarData();
 
@@ -262,7 +279,9 @@ namespace NMX
 
                 PlayerAvatarManager.LoadServerAvatarData();
 
-                LoadEntityAndObject();
+                var einfo = new EntityInfo();
+
+                LoadEntityAndObject(einfo);
 
             }
 
