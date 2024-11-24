@@ -5,9 +5,9 @@ namespace NMX
 {
     public class ChestObject : Entity
     {
-        public override void Load(Transform transform, EntityInfo entityInfo)
+        public override void Load(Transform transform)
         {
-            base.Load(transform,entityInfo);
+            base.Load(transform);
 
             transform.position = new Vector3(9, 1, 9);
 

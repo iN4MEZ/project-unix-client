@@ -44,8 +44,6 @@ namespace NMX.GameCore.Network.Client
 
         private bool isSendBreath;
 
-        private bool isSyncServer;
-
         private void Awake()
         {
             instance = this;
@@ -107,14 +105,6 @@ namespace NMX.GameCore.Network.Client
                     }
                 }
             }
-
-            if(!isSyncServer)
-            {
-                if(udp != null && Player != null)
-                {
-                    StartCoroutine(SendSyncEnumerator());
-                }
-            }
         }
 
         private IEnumerator SendBreathingEnumerator()
@@ -124,24 +114,6 @@ namespace NMX.GameCore.Network.Client
             SendBreathingToServer(); // ส่งข้อมูลไปยังเซิร์ฟเวอร์ทุกๆ 1 วินาที
 
             isSendBreath = false;
-        }
-
-        private IEnumerator SendSyncEnumerator()
-        {
-            isSyncServer = true;
-            yield return new WaitForSeconds(0.1f);
-            SendSyncToServer(); // ส่งข้อมูลไปยังเซิร์ฟเวอร์ทุกๆ 0.5 วินาที
-
-            isSyncServer = false;
-        }
-
-        private async void SendSyncToServer()
-        {
-            await udp.SendPacketAsync(CmdType.CscPlayerSync, new CscPlayerSync
-            {
-                PlayerState = Player.movementStateMachine.ReuseableData.CurrentState.GetType().ToString(),
-                ComboIndex = Player.movementStateMachine.ReuseableData.ComboIndex
-            });
         }
 
         private async void SendBreathingToServer()
@@ -166,7 +138,7 @@ namespace NMX.GameCore.Network.Client
             private INetworkUnit networkUnit;
 
             public bool isConnected { get; private set; } = false;
-            public ClientSession clientSession { get; private set; }
+            public ClientSession ClientSession { get; private set; }
 
 
             public UDP(IPEndPoint endPoint)
@@ -229,13 +201,13 @@ namespace NMX.GameCore.Network.Client
 
                         networkUnit = new NetworkUnit(kcpConv.Connection, endPoint);
 
-                        clientSession = new ClientSession(networkUnit);
+                        ClientSession = new ClientSession(networkUnit);
 
                         isConnected = true;
 
                         Debug.Log("Sync With Server! GoodJob! XD ");
 
-                        await clientSession!.RunAsync();
+                        await ClientSession!.RunAsync();
                     }
                      
 
@@ -245,7 +217,7 @@ namespace NMX.GameCore.Network.Client
                     Debug.LogException(e);
                     isConnected = false;
                     Debug.LogError("Uplink Fails!!!!");
-                    clientSession?.Dispose();
+                    ClientSession?.Dispose();
                     udpClient.Close();
                 }
             }
@@ -303,7 +275,7 @@ namespace NMX.GameCore.Network.Client
                     Body = message.ToByteArray()
                 };
 
-                await clientSession.SendAsync(packet);
+                await ClientSession.SendAsync(packet);
 
                 return Task.CompletedTask;
             }
@@ -317,7 +289,7 @@ namespace NMX.GameCore.Network.Client
                     Body = message.ToByteArray()
                 };
 
-                await clientSession.SendAsync(packet);
+                await ClientSession.SendAsync(packet);
 
                 callback();
 
@@ -331,7 +303,7 @@ namespace NMX.GameCore.Network.Client
                     CmdType = type,
                 };
 
-                await clientSession.SendAsync(packet);
+                await ClientSession.SendAsync(packet);
 
                 return Task.CompletedTask;
             }
@@ -344,7 +316,7 @@ namespace NMX.GameCore.Network.Client
                 };
 
                 // สร้าง Task และใช้ await ภายใน
-                ValueTask task = clientSession.SendAsync(packet);
+                ValueTask task = ClientSession.SendAsync(packet);
                 while (!task.IsCompleted)
                 {
                     yield return null; // รอให้ Task เสร็จสมบูรณ์
@@ -358,7 +330,7 @@ namespace NMX.GameCore.Network.Client
                     CmdType = type,
                 };
 
-                await clientSession.SendAsync(packet);
+                await ClientSession.SendAsync(packet);
 
                 callback();
 

@@ -23,12 +23,12 @@ namespace NMX
         public Rigidbody Rigidbody { get; }
 
 
-        public virtual void Create()
+        public virtual void RegisterServerEntityData(EntityInfo entityInfo)
         {
-            throw new System.NotImplementedException();
+            EntityId = entityInfo.Id;
         }
 
-        public virtual void Load(Transform transform, EntityInfo entityInfo)
+        public virtual void Load(Transform transform)
         {
             Debug.Log("Entity ID: " + EntityId + " Type: " + EntityType + " Has Loaded!");
 

@@ -66,35 +66,35 @@ namespace NMX.Protocal {
             "aXR5VHlwZRIhCgZhcEluZm8YBSABKAsyES5FbnRpdHlBcHBlYXJJbmZvIhkK",
             "F0VudGVyU2NlbmVSZWFkeVN0YXRlUmVxIhcKFUVudGVyU2NlbmVQcmVTdGF0",
             "ZVJlcSIYChZFbnRlclNjZW5lUG9zdFN0YXRlUmVxIhoKGEVudGVyU2NlbmVG",
-            "aW5pc2hTdGF0ZVJlcSIQCg5HZXRUZWFtRGF0YVJlcSItCg5HZXRUZWFtRGF0",
-            "YVJzcBIbCgh0ZWFtSW5mbxgBIAEoCzIJLlRlYW1JbmZvIj4KCFRlYW1JbmZv",
-            "EhEKCXRlYW1JbmRleBgBIAEoBRIfCgphdmF0YXJMaXN0GAIgAygLMgsuQXZh",
-            "dGFyRGF0YSI1ChJFbnRpdHlBcHBlYXJOb3RpZnkSHwoKRW50aXR5TGlzdBgB",
-            "IAEoCzILLkVudGl0eUluZm8iaQoQRW50aXR5QXBwZWFySW5mbxIYCgdpbml0",
-            "UG9zGAEgASgLMgcuVmVjdG9yEhoKB2luaXRSb3QYAiABKAsyCS5Sb3RhdGlv",
-            "bhIfCgpBcHBlYXJUeXBlGAMgASgOMgsuQXBwZWFyVHlwZSInChNDaGVzdElu",
-            "dGVyYWN0aW9uUmVxEhAKCGNoZXN0X2lkGAEgASgFIhUKE0NoZXN0SW50ZXJh",
-            "Y3Rpb25Sc3AiKgoWQ2hlc3RJbnRlcmFjdGlvbk5vdGlmeRIQCghjaGVzdF9p",
-            "ZBgBIAEoDSJGChJBdmF0YXJCaW5Ta2lsbEluZm8SDwoHYmFzZUF0axgBIAEo",
-            "AhIOCgZiYXNlSHAYAiABKAISDwoHYmFzZURlZhgDIAEoDSKJAQoKQXZhdGFy",
-            "RGF0YRIMCgRuYW1lGAEgASgJEgoKAmlkGAIgASgNEhoKBWVJbmZvGAMgASgL",
-            "MgsuRW50aXR5SW5mbxIiCgVzSW5mbxgEIAEoCzITLkF2YXRhckJpblNraWxs",
-            "SW5mbxIhCgZhcEluZm8YBSABKAsyES5FbnRpdHlBcHBlYXJJbmZvIikKBlZl",
-            "Y3RvchIJCgF4GAEgASgCEgkKAXkYAiABKAISCQoBehgDIAEoAiI2CghSb3Rh",
-            "dGlvbhIJCgFxGAEgASgCEgkKAXgYAiABKAISCQoBeRgDIAEoAhIJCgF6GAQg",
-            "ASgCIigKElBsYXllckJyZWF0aGluZ1JlcRISCgpDbGllbnRUaW1lGAEgASgN",
-            "IigKElBsYXllckJyZWF0aGluZ1JzcBISCgpTZXJ2ZXJUaW1lGAEgASgNIjoK",
-            "FFBsYXllclBvc2l0aW9uTm90aWZ5EhQKA3BvcxgBIAEoCzIHLlZlY3RvchIM",
-            "CgRjb2RlGAIgASgNIhIKEENsaWVudEluaXROb3RpZnkibwodU2NlbmVFbnRp",
-            "dHlNb3ZpbmdVcGRhdGVOb3RpZnkSGgoFZUluZm8YASABKAsyCy5FbnRpdHlJ",
-            "bmZvEhcKBm5ld1BvcxgCIAEoCzIHLlZlY3RvchIZCgZuZXdSb3QYAyABKAsy",
-            "CS5Sb3RhdGlvbipECgtFbnRlclJlYXNvbhIOCgpFTlRFUl9TRUxGEAASDwoL",
-            "UkVKT0lOX1NFTEYQARIUChBSRVFVRVNUX1RPX09USEVSEAIqLgoKRW50aXR5",
-            "VHlwZRILCgdNT05TVEVSEAASCgoGQVZBVEFSEAESBwoDTlBDEAIqTgoTRW50",
-            "ZXJTY2VuZVN0YXRlSW5mbxIICgROb25lEAASCQoFUkVBRFkQARIHCgNQUkUQ",
-            "AhIICgRQT1NUEAMSDwoLRU5URVJGSU5JU0gQBCowCgpBcHBlYXJUeXBlEg8K",
-            "C0FQUEVBUl9CT1JOEAASEQoNQVBQRUFSX1JFTU9WRRABQg+qAgxOTVguUHJv",
-            "dG9jYWxiBnByb3RvMw=="));
+            "aW5pc2hTdGF0ZVJlcSIiChRHZXRUZWFtTGluZXVwRGF0YVJlcRIKCgJpZBgB",
+            "IAEoDSIzChRHZXRUZWFtTGluZXVwRGF0YVJzcBIbCgh0ZWFtSW5mbxgBIAEo",
+            "CzIJLlRlYW1JbmZvIj4KCFRlYW1JbmZvEhEKCXRlYW1JbmRleBgBIAEoBRIf",
+            "CgphdmF0YXJMaXN0GAIgAygLMgsuQXZhdGFyRGF0YSI1ChJFbnRpdHlBcHBl",
+            "YXJOb3RpZnkSHwoKRW50aXR5TGlzdBgBIAEoCzILLkVudGl0eUluZm8iaQoQ",
+            "RW50aXR5QXBwZWFySW5mbxIYCgdpbml0UG9zGAEgASgLMgcuVmVjdG9yEhoK",
+            "B2luaXRSb3QYAiABKAsyCS5Sb3RhdGlvbhIfCgpBcHBlYXJUeXBlGAMgASgO",
+            "MgsuQXBwZWFyVHlwZSInChNDaGVzdEludGVyYWN0aW9uUmVxEhAKCGNoZXN0",
+            "X2lkGAEgASgFIhUKE0NoZXN0SW50ZXJhY3Rpb25Sc3AiKgoWQ2hlc3RJbnRl",
+            "cmFjdGlvbk5vdGlmeRIQCghjaGVzdF9pZBgBIAEoDSJGChJBdmF0YXJCaW5T",
+            "a2lsbEluZm8SDwoHYmFzZUF0axgBIAEoAhIOCgZiYXNlSHAYAiABKAISDwoH",
+            "YmFzZURlZhgDIAEoDSKJAQoKQXZhdGFyRGF0YRIMCgRuYW1lGAEgASgJEgoK",
+            "AmlkGAIgASgNEhoKBWVJbmZvGAMgASgLMgsuRW50aXR5SW5mbxIiCgVzSW5m",
+            "bxgEIAEoCzITLkF2YXRhckJpblNraWxsSW5mbxIhCgZhcEluZm8YBSABKAsy",
+            "ES5FbnRpdHlBcHBlYXJJbmZvIikKBlZlY3RvchIJCgF4GAEgASgCEgkKAXkY",
+            "AiABKAISCQoBehgDIAEoAiI2CghSb3RhdGlvbhIJCgFxGAEgASgCEgkKAXgY",
+            "AiABKAISCQoBeRgDIAEoAhIJCgF6GAQgASgCIigKElBsYXllckJyZWF0aGlu",
+            "Z1JlcRISCgpDbGllbnRUaW1lGAEgASgNIigKElBsYXllckJyZWF0aGluZ1Jz",
+            "cBISCgpTZXJ2ZXJUaW1lGAEgASgNIjoKFFBsYXllclBvc2l0aW9uTm90aWZ5",
+            "EhQKA3BvcxgBIAEoCzIHLlZlY3RvchIMCgRjb2RlGAIgASgNIhIKEENsaWVu",
+            "dEluaXROb3RpZnkibwodU2NlbmVFbnRpdHlNb3ZpbmdVcGRhdGVOb3RpZnkS",
+            "GgoFZUluZm8YASABKAsyCy5FbnRpdHlJbmZvEhcKBm5ld1BvcxgCIAEoCzIH",
+            "LlZlY3RvchIZCgZuZXdSb3QYAyABKAsyCS5Sb3RhdGlvbipECgtFbnRlclJl",
+            "YXNvbhIOCgpFTlRFUl9TRUxGEAASDwoLUkVKT0lOX1NFTEYQARIUChBSRVFV",
+            "RVNUX1RPX09USEVSEAIqLgoKRW50aXR5VHlwZRILCgdNT05TVEVSEAASCgoG",
+            "QVZBVEFSEAESBwoDTlBDEAIqTgoTRW50ZXJTY2VuZVN0YXRlSW5mbxIICgRO",
+            "b25lEAASCQoFUkVBRFkQARIHCgNQUkUQAhIICgRQT1NUEAMSDwoLRU5URVJG",
+            "SU5JU0gQBCowCgpBcHBlYXJUeXBlEg8KC0FQUEVBUl9CT1JOEAASEQoNQVBQ",
+            "RUFSX1JFTU9WRRABQg+qAgxOTVguUHJvdG9jYWxiBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(new[] {typeof(global::NMX.Protocal.EnterReason), typeof(global::NMX.Protocal.EntityType), typeof(global::NMX.Protocal.EnterSceneStateInfo), typeof(global::NMX.Protocal.AppearType), }, null, new pbr::GeneratedClrTypeInfo[] {
@@ -139,8 +139,8 @@ namespace NMX.Protocal {
             new pbr::GeneratedClrTypeInfo(typeof(global::NMX.Protocal.EnterScenePreStateReq), global::NMX.Protocal.EnterScenePreStateReq.Parser, null, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::NMX.Protocal.EnterScenePostStateReq), global::NMX.Protocal.EnterScenePostStateReq.Parser, null, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::NMX.Protocal.EnterSceneFinishStateReq), global::NMX.Protocal.EnterSceneFinishStateReq.Parser, null, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::NMX.Protocal.GetTeamDataReq), global::NMX.Protocal.GetTeamDataReq.Parser, null, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::NMX.Protocal.GetTeamDataRsp), global::NMX.Protocal.GetTeamDataRsp.Parser, new[]{ "TeamInfo" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::NMX.Protocal.GetTeamLineupDataReq), global::NMX.Protocal.GetTeamLineupDataReq.Parser, new[]{ "Id" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::NMX.Protocal.GetTeamLineupDataRsp), global::NMX.Protocal.GetTeamLineupDataRsp.Parser, new[]{ "TeamInfo" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::NMX.Protocal.TeamInfo), global::NMX.Protocal.TeamInfo.Parser, new[]{ "TeamIndex", "AvatarList" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::NMX.Protocal.EntityAppearNotify), global::NMX.Protocal.EntityAppearNotify.Parser, new[]{ "EntityList" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::NMX.Protocal.EntityAppearInfo), global::NMX.Protocal.EntityAppearInfo.Parser, new[]{ "InitPos", "InitRot", "AppearType" }, null, null, null, null),
@@ -8390,16 +8390,16 @@ namespace NMX.Protocal {
   }
 
   [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
-  public sealed partial class GetTeamDataReq : pb::IMessage<GetTeamDataReq>
+  public sealed partial class GetTeamLineupDataReq : pb::IMessage<GetTeamLineupDataReq>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
   #endif
   {
-    private static readonly pb::MessageParser<GetTeamDataReq> _parser = new pb::MessageParser<GetTeamDataReq>(() => new GetTeamDataReq());
+    private static readonly pb::MessageParser<GetTeamLineupDataReq> _parser = new pb::MessageParser<GetTeamLineupDataReq>(() => new GetTeamLineupDataReq());
     private pb::UnknownFieldSet _unknownFields;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public static pb::MessageParser<GetTeamDataReq> Parser { get { return _parser; } }
+    public static pb::MessageParser<GetTeamLineupDataReq> Parser { get { return _parser; } }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -8415,7 +8415,7 @@ namespace NMX.Protocal {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public GetTeamDataReq() {
+    public GetTeamLineupDataReq() {
       OnConstruction();
     }
 
@@ -8423,31 +8423,45 @@ namespace NMX.Protocal {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public GetTeamDataReq(GetTeamDataReq other) : this() {
+    public GetTeamLineupDataReq(GetTeamLineupDataReq other) : this() {
+      id_ = other.id_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public GetTeamDataReq Clone() {
-      return new GetTeamDataReq(this);
+    public GetTeamLineupDataReq Clone() {
+      return new GetTeamLineupDataReq(this);
+    }
+
+    /// <summary>Field number for the "id" field.</summary>
+    public const int IdFieldNumber = 1;
+    private uint id_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public uint Id {
+      get { return id_; }
+      set {
+        id_ = value;
+      }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
-      return Equals(other as GetTeamDataReq);
+      return Equals(other as GetTeamLineupDataReq);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public bool Equals(GetTeamDataReq other) {
+    public bool Equals(GetTeamLineupDataReq other) {
       if (ReferenceEquals(other, null)) {
         return false;
       }
       if (ReferenceEquals(other, this)) {
         return true;
       }
+      if (Id != other.Id) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -8455,6 +8469,7 @@ namespace NMX.Protocal {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
+      if (Id != 0) hash ^= Id.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -8473,6 +8488,10 @@ namespace NMX.Protocal {
     #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       output.WriteRawMessage(this);
     #else
+      if (Id != 0) {
+        output.WriteRawTag(8);
+        output.WriteUInt32(Id);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -8483,6 +8502,10 @@ namespace NMX.Protocal {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (Id != 0) {
+        output.WriteRawTag(8);
+        output.WriteUInt32(Id);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -8493,6 +8516,9 @@ namespace NMX.Protocal {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
+      if (Id != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Id);
+      }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
       }
@@ -8501,9 +8527,12 @@ namespace NMX.Protocal {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void MergeFrom(GetTeamDataReq other) {
+    public void MergeFrom(GetTeamLineupDataReq other) {
       if (other == null) {
         return;
+      }
+      if (other.Id != 0) {
+        Id = other.Id;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -8520,6 +8549,10 @@ namespace NMX.Protocal {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
+          case 8: {
+            Id = input.ReadUInt32();
+            break;
+          }
         }
       }
     #endif
@@ -8535,6 +8568,10 @@ namespace NMX.Protocal {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
+          case 8: {
+            Id = input.ReadUInt32();
+            break;
+          }
         }
       }
     }
@@ -8543,16 +8580,16 @@ namespace NMX.Protocal {
   }
 
   [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
-  public sealed partial class GetTeamDataRsp : pb::IMessage<GetTeamDataRsp>
+  public sealed partial class GetTeamLineupDataRsp : pb::IMessage<GetTeamLineupDataRsp>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
   #endif
   {
-    private static readonly pb::MessageParser<GetTeamDataRsp> _parser = new pb::MessageParser<GetTeamDataRsp>(() => new GetTeamDataRsp());
+    private static readonly pb::MessageParser<GetTeamLineupDataRsp> _parser = new pb::MessageParser<GetTeamLineupDataRsp>(() => new GetTeamLineupDataRsp());
     private pb::UnknownFieldSet _unknownFields;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public static pb::MessageParser<GetTeamDataRsp> Parser { get { return _parser; } }
+    public static pb::MessageParser<GetTeamLineupDataRsp> Parser { get { return _parser; } }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -8568,7 +8605,7 @@ namespace NMX.Protocal {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public GetTeamDataRsp() {
+    public GetTeamLineupDataRsp() {
       OnConstruction();
     }
 
@@ -8576,15 +8613,15 @@ namespace NMX.Protocal {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public GetTeamDataRsp(GetTeamDataRsp other) : this() {
+    public GetTeamLineupDataRsp(GetTeamLineupDataRsp other) : this() {
       teamInfo_ = other.teamInfo_ != null ? other.teamInfo_.Clone() : null;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public GetTeamDataRsp Clone() {
-      return new GetTeamDataRsp(this);
+    public GetTeamLineupDataRsp Clone() {
+      return new GetTeamLineupDataRsp(this);
     }
 
     /// <summary>Field number for the "teamInfo" field.</summary>
@@ -8602,12 +8639,12 @@ namespace NMX.Protocal {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
-      return Equals(other as GetTeamDataRsp);
+      return Equals(other as GetTeamLineupDataRsp);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public bool Equals(GetTeamDataRsp other) {
+    public bool Equals(GetTeamLineupDataRsp other) {
       if (ReferenceEquals(other, null)) {
         return false;
       }
@@ -8680,7 +8717,7 @@ namespace NMX.Protocal {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void MergeFrom(GetTeamDataRsp other) {
+    public void MergeFrom(GetTeamLineupDataRsp other) {
       if (other == null) {
         return;
       }

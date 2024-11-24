@@ -8,8 +8,8 @@ namespace NMX
 {
     public interface IEntity
     {
-        public void Load(Transform transform,EntityInfo entityInfo);
+        public void Load(Transform transform);
 
-        public void Create();
+        public void RegisterServerEntityData(EntityInfo entityInfo);
     }
 }

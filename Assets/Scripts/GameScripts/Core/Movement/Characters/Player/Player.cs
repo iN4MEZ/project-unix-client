@@ -42,9 +42,11 @@ namespace NMX
             movementStateMachine = new PlayerMovementStateMachine(this);
 
         }
-        void Start()
+
+        public void InitializePlayer()
         {
             MainCameraTranform = Camera.main.transform;
+
             ColliderUtilities.Initialize(gameObject);
             AnimationData.Initialize();
 

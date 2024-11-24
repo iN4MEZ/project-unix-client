@@ -6,8 +6,6 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using UnityEngine;
 using QFSW.QC;
-using System.Security.Cryptography;
-using static UnityEditor.PlayerSettings;
 
 namespace NMX
 {
@@ -23,7 +21,7 @@ namespace NMX
             packetHandlers = new Dictionary<CmdType, PacketHandler>();
             packetHandlers[CmdType.EnterGameRsp] = EnterGameRsp;
             packetHandlers[CmdType.PlayerBreathingRsp] = BreathingRsp;
-            packetHandlers[CmdType.GetTeamDataRsp] = GetTeamData;
+            packetHandlers[CmdType.GetTeamLineupDataRsp] = GetTeamLineupData;
             packetHandlers[CmdType.GetAvatarDataRsp] = GetAvatarDataRspHandle;
             packetHandlers[CmdType.EnterSceneRsp] = EnterSceneRsp;
             packetHandlers[CmdType.ClientInitNotify] = ClientInitNotify;
@@ -122,7 +120,7 @@ namespace NMX
 
             foreach (var rspData in rsp.AvatarList)
             {
-                manager.Avatars.Add(new AvatarData { AvatarID = rspData.Id });
+                manager.ScsAvatars.Add(new AvatarData { AvatarID = rspData.Id });
             }
 
             await Task.CompletedTask;
@@ -229,16 +227,19 @@ namespace NMX
             await Task.CompletedTask;
         }
 
-        private async Task GetTeamData(NetPacket packet)
+        private async Task GetTeamLineupData(NetPacket packet)
         {
-            //GetTeamDataRsp rsp = packet!.DecodeBody<GetTeamDataRsp>();
+            GetTeamLineupDataRsp rsp = packet!.DecodeBody<GetTeamLineupDataRsp>();
 
-            //foreach (var teamInfoId in rsp.TeamInfo.AvatarList)
-            //{
-            //    Debug.Log(teamInfoId.Id);
-            //}
+            PlayerAvatarManager manager = GameSceneManager.Instance.PlayerAvatarManager;
 
-            Debug.Log("Recv TeamData" );
+            manager.ScsTeamLineupStartIndexSetter(rsp.TeamInfo.TeamIndex);
+
+            foreach (var rspData in rsp.TeamInfo.AvatarList)
+            {
+                manager.ScsTeamLineup.Add(new AvatarData { AvatarID = rspData.Id });
+                manager.ScsAvatarEntityInfo.Add(new EntityInfo { Id = rspData.Id });
+            }
 
             await Task.CompletedTask;
         }

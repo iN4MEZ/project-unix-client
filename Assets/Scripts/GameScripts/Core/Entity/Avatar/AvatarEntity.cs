@@ -28,21 +28,15 @@ namespace NMX
         }
 
 
-        public override void Load(Transform transform, EntityInfo entityInfo)
+        public override void Load(Transform transform)
         {
-            base.Load(transform, entityInfo);
+            base.Load(transform);
 
             var resourceGameObject = Resources.Load(EntityData.ModelPath) as GameObject;
 
             if (resourceGameObject != null) {
 
                 OnLoadResourceGameObject = Instantiate(resourceGameObject, transform);
-
-                if (OnLoadResourceGameObject.GetComponent<AvatarEntity>() == null)
-                {
-                    var acompo = OnLoadResourceGameObject.AddComponent<AvatarEntity>();
-                    acompo.EntityId = this.EntityId;
-                }
 
             }
 

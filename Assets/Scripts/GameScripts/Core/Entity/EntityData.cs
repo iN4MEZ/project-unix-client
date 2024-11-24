@@ -6,5 +6,7 @@ namespace NMX
     public class EntityData
     {
         public Vector3 BornInitPos;
+
+        public uint EId;
     }
 }

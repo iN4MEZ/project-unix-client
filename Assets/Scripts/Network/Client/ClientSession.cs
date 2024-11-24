@@ -111,8 +111,6 @@ namespace NMX.GameCore.Network.Client
             {
                 // รอให้คำขอประมวลผลเสร็จ
                 yield return null;
-
-                Debug.Log(cmdType + " Has Handle!");
             }
         }
 

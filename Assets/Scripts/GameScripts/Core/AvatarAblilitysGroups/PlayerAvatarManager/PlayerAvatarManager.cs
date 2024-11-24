@@ -18,7 +18,11 @@ namespace NMX
 
         [field: SerializeField] public List<GameObject> AvatarOnLoadData { get; private set; }
 
-        [field: SerializeField] public List<AvatarData> Avatars { get; private set; }
+        [field: SerializeField] public List<AvatarData> ScsAvatars { get; private set; }
+
+        [field: SerializeField] public List<AvatarData> ScsTeamLineup { get; private set; }
+
+        [field: SerializeField] public List<EntityInfo> ScsAvatarEntityInfo { get; private set; }
 
         [field: SerializeField] public List<Animator> Animators { get; private set; }
 
@@ -26,16 +30,26 @@ namespace NMX
 
         public event ChangeAvatarEvent OnChangeAvatar;
 
+        public int ScsTeamLineupStartIndex { get; private set; }
+
         [field: SerializeField] public Player Player { get; private set; }
+
+        private void Start()
+        {
+            ScsAvatarEntityInfo = new();
+        }
 
 
         public void LoadServerAvatarData()
         {
 
-            foreach (var avatar in Avatars)
+            foreach (var avatar in ScsAvatars)
             {
+            }
 
-                var resources = LocalStorageManager.Instance.GetAvatarDataById(avatar.AvatarID);
+            foreach (var team in ScsTeamLineup)
+            {
+                var resources = LocalStorageManager.Instance.GetAvatarDataById(team.AvatarID);
 
                 TeamAvatar.Add(Resources.Load($"{resources.ResourcePath}") as GameObject);
             }
@@ -151,7 +165,7 @@ namespace NMX
 
             UIManager.instance.UpdateActiveAvatarIcon(AvatarOnLoadData);
 
-            DisableAllActiveAvatarExcept(0);
+            DisableAllActiveAvatarExcept(ScsTeamLineupStartIndex);
             
 
         }
@@ -252,6 +266,11 @@ namespace NMX
             {
                 yield return null;
             }
+        }
+
+        public void ScsTeamLineupStartIndexSetter(int index)
+        {
+            ScsTeamLineupStartIndex = index;
         }
 
 

@@ -13,6 +13,8 @@ namespace NMX
     {
         [field: SerializeField] public List<GameObject> entitysFactory;
 
+        public List<EntityInfo> entitysFactoryDataScs;
+
         [field: SerializeField] public Dictionary<uint,Entity> entities;
 
         public EntityManager Instance { get; private set; }
@@ -22,6 +24,8 @@ namespace NMX
             Instance = this;
 
             entities = new();
+
+            entitysFactoryDataScs = new();
 
         }
 
@@ -44,12 +48,26 @@ namespace NMX
             //}
         }
 
+        public void AddEntityGameObjectToFactory(GameObject entity,EntityInfo entityInfo)
+        {
+            try
+            {
+                entitysFactoryDataScs.Add(entityInfo);
+
+                entitysFactory.Add(entity);
+            } catch(Exception ex) {
+                Debug.Log(ex);
+            }
+        }
+
         public void AddEntityGameObjectToFactory(GameObject entity)
         {
             try
             {
                 entitysFactory.Add(entity);
-            } catch(Exception ex) {
+            }
+            catch (Exception ex)
+            {
                 Debug.Log(ex);
             }
         }
@@ -111,33 +129,49 @@ namespace NMX
 
 
 
-        public void LoadFactoryEntityIntroGame(EntityInfo entityInfo)
+        public void LoadFactoryEntityIntroGame()
         {
-            foreach (var entity in entitysFactory)
+
+            for (int i = 0; i < entitysFactory.Count; i++)
             {
-                if (entity != null)
+
+                if (entitysFactory[i] != null)
                 {
                     try
                     {
+                        var entity = entitysFactory[i];
+
                         IEntity ent = entity.GetComponent<IEntity>();
 
-                        ent.Load(entity.transform, entityInfo);
+                        ent.RegisterServerEntityData(entitysFactoryDataScs[i]);
+
+                        ent.Load(entity.transform);
 
                         Entity entcompo = entity.GetComponent<Entity>();
 
                         entities[entcompo.EntityId] = entcompo;
 
-                    } catch (NullReferenceException nullex)
-                    {
-                        Debug.LogError(nullex);
-                        continue;
                     }
+                    catch (Exception ex)
+                    {
+                        Debug.LogError(ex);
+                        switch (ex)
+                        {
+                            case NullReferenceException:
+                                continue;
+
+                            case ArgumentOutOfRangeException:
+                                return;
+                        }
+
+                    } 
                 }
             }
 
             // Finish Load Clear Factory
 
             entitysFactory.Clear();
+            entitysFactoryDataScs.Clear();
         }
 
 
