@@ -16,9 +16,9 @@ namespace NMX
         public GameObject OnLoadResourceGameObject { get; protected set; }
 
         public EntityInfo EntityInfo { get; protected set; }
-
-
         public Vector3 Position { get { return Position; }  set { transform.position = value; } }
+
+        public Vector3 PositionRigidbody { get { return PositionRigidbody; } set { Rigidbody.MovePosition(value); } }
 
         public Rigidbody Rigidbody { get; }
 

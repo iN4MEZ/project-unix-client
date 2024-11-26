@@ -1,3 +1,4 @@
+using NMX.Protocal;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -29,6 +30,7 @@ namespace NMX
 
         public string ResourcePath { get; set; }
 
+        public EntityInfo ScsAvatarEntityInfo { get; set; }
 
 
         [field: SerializeField] public static GameObject AvatarObjectInstance;

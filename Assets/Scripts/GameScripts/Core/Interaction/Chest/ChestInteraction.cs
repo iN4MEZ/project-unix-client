@@ -16,7 +16,7 @@ namespace NMX
         {
             Debug.Log("Chest Interaction! Id" + id);
 
-            await Client.NET.SendPacketAsync(GameCore.Network.Protocol.CmdType.ChestInteractionReq, new ChestInteractionReq { ChestId = 1});
+            //await Client.NET.SendPacketAsync(GameCore.Network.Protocol.CmdType.ChestInteractionReq, new ChestInteractionReq { ChestId = 1});
         }
     }
 }

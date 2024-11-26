@@ -22,8 +22,6 @@ namespace NMX
 
         [field: SerializeField] public List<AvatarData> ScsTeamLineup { get; private set; }
 
-        [field: SerializeField] public List<EntityInfo> ScsAvatarEntityInfo { get; private set; }
-
         [field: SerializeField] public List<Animator> Animators { get; private set; }
 
         public delegate void ChangeAvatarEvent();
@@ -33,11 +31,6 @@ namespace NMX
         public int ScsTeamLineupStartIndex { get; private set; }
 
         [field: SerializeField] public Player Player { get; private set; }
-
-        private void Start()
-        {
-            ScsAvatarEntityInfo = new();
-        }
 
 
         public void LoadServerAvatarData()

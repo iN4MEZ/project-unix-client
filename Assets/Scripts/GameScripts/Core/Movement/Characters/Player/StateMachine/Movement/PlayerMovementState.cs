@@ -360,9 +360,9 @@ namespace NMX
                     { EntityId = stateMachine.Player.PlayerAvatarManager.GetActiveAvatarManager().EntityId, MoveInfo = CreateMovingInfo() });
 
             }
-            catch (InvalidOperationException e)
+            catch (Exception e)
             {
-                UnityEngine.Debug.Log("fuck you");
+                
             }
         }
     }

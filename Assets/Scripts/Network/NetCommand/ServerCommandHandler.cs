@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using UnityEngine;
 using QFSW.QC;
+using System.Collections;
 
 namespace NMX
 {
@@ -13,6 +14,8 @@ namespace NMX
     {
 
         public delegate Task PacketHandler(NetPacket packet);
+
+        private Dictionary<CmdType, bool> taskCompletionStatus = new Dictionary<CmdType, bool>();
 
         public Dictionary<CmdType, PacketHandler> packetHandlers { get; private set; }
 
@@ -40,6 +43,49 @@ namespace NMX
             packetHandlers[CmdType.SceneEntityMoveUpdateNotify] = SceneEntityMovingUpdateNotifyHandle;
 
             Debug.Log("Protocal Initialized!");
+        }
+
+        public async Task HandlePacket(CmdType cmdType, NetPacket packet)
+        {
+            if (packetHandlers.TryGetValue(cmdType, out var handler))
+            {
+                var task = handler(packet); // ตรวจสอบว่า PacketHandler คืน Task
+
+                taskCompletionStatus[cmdType] = false; // Reset
+
+                taskCompletionStatus[cmdType] = task.IsCompleted;
+
+                await task;
+            }
+            else
+            {
+                Console.WriteLine($"No handler found for command type {cmdType}");
+            }
+        }
+
+        public IEnumerator WaitTaskProceed(CmdType cmdType)
+        {
+            // Loop until the task associated with cmdType is completed
+            while (!taskCompletionStatus.ContainsKey(cmdType) || !taskCompletionStatus[cmdType])
+            {
+                // Yield return null to wait until the next frame
+                yield return null;
+            }
+
+            // Task has completed, do the necessary action here
+            Debug.Log($"{cmdType} Task is complete!");
+        }
+
+        public Task GetTask(CmdType cmdType, NetPacket packet)
+        {
+            if (packetHandlers.TryGetValue(cmdType, out var handler))
+            {
+                return handler.Invoke(packet);
+            }
+            else
+            {
+                throw new KeyNotFoundException($"No PacketHandler found for CmdType {cmdType}");
+            }
         }
 
         private async Task SceneEntityMovingUpdateNotifyHandle(NetPacket packet)
@@ -82,7 +128,7 @@ namespace NMX
             await Task.CompletedTask;
         }
 
-        private async Task None(NetPacket packet) { }
+        private async Task None(NetPacket packet) { await Task.CompletedTask; }
 
         private async Task PlayerPosition(NetPacket packet)
         {
@@ -101,6 +147,8 @@ namespace NMX
         private async Task PlayerBasicInfo(NetPacket packet)
         {
             //NetDataManager.Instance.PlayerGameData = new PlayerBasicInfoData { PlayerName = "" }
+
+            await Task.CompletedTask;
         }
 
         private async Task EnterGameRsp(NetPacket packet)
@@ -108,6 +156,8 @@ namespace NMX
             LoginRsp rsp = packet.DecodeBody<LoginRsp>();
 
             UIManager.instance.UpdateUidUI(rsp.Id);
+
+            Client.NET.OnConnectedSuccess();
 
             await Task.CompletedTask;
         }
@@ -155,7 +205,6 @@ namespace NMX
 
         private async Task ChestInteractionRspHandle(NetPacket packet)
         {
-            Debug.Log("You open chest");
             await Task.CompletedTask;
         }
 
@@ -192,7 +241,6 @@ namespace NMX
         {
             LoginRsp rsp = packet.DecodeBody<LoginRsp>();
             UIManager.instance.UpdateUidUI(rsp.Id);
-            Client.instance.OnConnectedSuccess();
             await Task.CompletedTask;
         }
 
@@ -201,6 +249,8 @@ namespace NMX
             PlayerBreathingRsp rsp = packet!.DecodeBody<PlayerBreathingRsp>();
 
             UIManager.instance.UpdateSvTime(rsp.ServerTime);
+
+            Client.instance.UpdateServerTime(rsp.ServerTime);
 
             await Task.CompletedTask;
         }
@@ -237,8 +287,7 @@ namespace NMX
 
             foreach (var rspData in rsp.TeamInfo.AvatarList)
             {
-                manager.ScsTeamLineup.Add(new AvatarData { AvatarID = rspData.Id });
-                manager.ScsAvatarEntityInfo.Add(new EntityInfo { Id = rspData.Id });
+                manager.ScsTeamLineup.Add(new AvatarData { AvatarID = rspData.Id, ScsAvatarEntityInfo = new EntityInfo { Id = rspData.Id } });
             }
 
             await Task.CompletedTask;

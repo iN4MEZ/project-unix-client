@@ -25,7 +25,7 @@ namespace NMX.GameCore.Network.Client
 
         private INetworkUnit networkUnit;
 
-        private ServerCommandHandler serverCommandHandler;
+        public ServerCommandHandler serverCommandHandler {  get; private set; }
 
         public ClientSession(INetworkUnit networkUnit)
         {
@@ -54,7 +54,7 @@ namespace NMX.GameCore.Network.Client
             await Client.NET.SendPacketAsync(CmdType.EnterGameReq);
 
 
-            while(active)
+            while (active)
             {
                 int readAmount = await ReadWithTimeoutAsync(buffer,ReadTimeout);
 
@@ -94,24 +94,11 @@ namespace NMX.GameCore.Network.Client
                 if (packet == null)
                     return consumed;
 
-                await serverCommandHandler.packetHandlers[packet.CmdType](packet);
+                 await serverCommandHandler.HandlePacket(packet.CmdType, packet);
 
-                _currentPacket = packet.CmdType;
 
             } while (buffer.Length - consumed >= 12);
             return consumed;
-        }
-
-
-
-        public IEnumerator WaitForPacketProcessed(CmdType cmdType)
-        {
-            // รอจนกว่าคำขอจะได้รับการตอบกลับจากเซิร์ฟเวอร์
-            while (_currentPacket == cmdType)
-            {
-                // รอให้คำขอประมวลผลเสร็จ
-                yield return null;
-            }
         }
 
         public async ValueTask SendAsync(NetPacket packet)
@@ -126,6 +113,7 @@ namespace NMX.GameCore.Network.Client
         protected async ValueTask<int> ReadWithTimeoutAsync(Memory<byte> buffer, int timeoutSeconds)
         {
             using CancellationTokenSource cancellationTokenSource = new(TimeSpan.FromSeconds(timeoutSeconds));
+
             return await networkUnit!.ReceiveAsync(buffer, cancellationTokenSource.Token);
         }
 

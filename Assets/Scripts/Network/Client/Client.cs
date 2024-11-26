@@ -36,6 +36,12 @@ namespace NMX.GameCore.Network.Client
 
         public string ClientToken { get; set; }
 
+        private long lastServerTime = 0; // เวลาล่าสุดที่ได้รับจาก Server
+        private float checkInterval = 0.01f;
+        private float timer = 0f;
+
+        private int lostAttempt;
+
         public bool Connected { get
             {
                 return udp.isConnected;
@@ -81,7 +87,7 @@ namespace NMX.GameCore.Network.Client
         {
             udp = new UDP(ip);
 
-            Debug.Log("Created Protocol Instance Success! Prepare To Connect UDP SOCKET");
+            Debug.Log("Created Udp Instance Success! Prepare To Connect UDP SOCKET");
 
             LoginUI.Instance.gameObject.SetActive(false);
 
@@ -94,7 +100,6 @@ namespace NMX.GameCore.Network.Client
 
         private void Update()
         {
-
             if (!isSendBreath)
             {
                 if(udp != null)
@@ -102,8 +107,34 @@ namespace NMX.GameCore.Network.Client
                     if(udp.isConnected)
                     {
                         StartCoroutine(SendBreathingEnumerator());
+
+                        timer += Time.deltaTime;
+
+                        // ถ้าเกินช่วงเวลาที่กำหนดแล้ว Server ไม่ส่งเวลามาใหม่
+                        if (timer > checkInterval)
+                        {
+                            lostAttempt++;
+
+                            if (lostAttempt > 3)
+                            {
+                                Debug.LogError("Lost connection to server!");
+                                lostAttempt = 0;
+                            }
+
+                            timer = 0f; // Reset timer
+                        }
+
                     }
                 }
+            }
+        }
+
+        public void UpdateServerTime(long serverTime)
+        {
+            if (serverTime != lastServerTime)
+            {
+                lastServerTime = serverTime; // อัปเดตเวลาใหม่
+                timer = 0f; // Reset timer เมื่อมีเวลาใหม่เข้ามา
             }
         }
 
@@ -111,6 +142,7 @@ namespace NMX.GameCore.Network.Client
         {
             isSendBreath = true;
             yield return new WaitForSeconds(1f);
+
             SendBreathingToServer(); // ส่งข้อมูลไปยังเซิร์ฟเวอร์ทุกๆ 1 วินาที
 
             isSendBreath = false;
@@ -119,11 +151,6 @@ namespace NMX.GameCore.Network.Client
         private async void SendBreathingToServer()
         {
             await udp.SendPacketAsync(CmdType.PlayerBreathingReq);
-        }
-
-        public void OnConnectedSuccess()
-        {
-            
         }
 
         public void OnPlayerCreated()
@@ -166,32 +193,17 @@ namespace NMX.GameCore.Network.Client
                 {
                 }
             }
-            async Task<UdpReceiveResult> ReceiveWithTimeout(UdpClient client, int timeout)
-            {
-                Task<UdpReceiveResult> receiveTask = client.ReceiveAsync();
-                Task delayTask = Task.Delay(timeout);
-
-                await Task.WhenAny(receiveTask, delayTask);
-
-                if (receiveTask.IsCompleted)
-                {
-                    return await receiveTask;
-                }
-                else
-                {
-                    throw new TimeoutException("Timeout occurred while waiting for server response.");
-                }
-            }
-
 
             private async Task ReceiveHandshakeRespone(UdpClient udpClient)
             {
                 try
                 {
                     UdpReceiveResult result = await udpClient.ReceiveAsync();
+
                     HandShakeData handShakeData = await ReceivedHandshakeData(result);
 
-                    if(handShakeData != null) {
+                    if (handShakeData != null)
+                    {
 
                         long convId64 = handShakeData.Param1 << 32 | handShakeData.Param2;
 
@@ -203,22 +215,30 @@ namespace NMX.GameCore.Network.Client
 
                         ClientSession = new ClientSession(networkUnit);
 
-                        isConnected = true;
-
                         Debug.Log("Sync With Server! GoodJob! XD ");
 
                         await ClientSession!.RunAsync();
-                    }
-                     
 
-                } catch (Exception e)
+                    }
+
+
+                }
+
+                catch (Exception e)
                 {
                     Client.instance.ClientConnectionState = CONNECTION_STATE.DISCONNECTED;
                     Debug.LogException(e);
                     isConnected = false;
-                    Debug.LogError("Uplink Fails!!!!");
                     ClientSession?.Dispose();
                     udpClient.Close();
+
+                    switch(e)
+                    {
+                        case SocketException:
+                            break;
+                    }
+
+
                 }
             }
 
@@ -336,6 +356,12 @@ namespace NMX.GameCore.Network.Client
 
                 return Task.CompletedTask;
             }
+
+            public void OnConnectedSuccess()
+            {
+                isConnected = true;
+            }
+
 
             [Command("coop")]
             private static void JoinCoop(string action,long id)

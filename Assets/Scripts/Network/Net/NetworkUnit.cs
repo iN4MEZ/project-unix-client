@@ -31,6 +31,7 @@ namespace NMX
         public async ValueTask<int> ReceiveAsync(Memory<byte> buffer, CancellationToken cancellationToken)
         {
             KcpConversationReceiveResult result = await _conversation.ReceiveAsync(buffer, cancellationToken);
+
             if (result.TransportClosed)
                 return -1;
 

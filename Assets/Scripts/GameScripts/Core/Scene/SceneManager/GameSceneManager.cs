@@ -4,12 +4,9 @@ using NMX.Protocal;
 using System;
 using System.Collections;
 using System.Linq;
-using System.Security.Cryptography;
 using System.Threading.Tasks;
 using UnityEngine;
-using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI;
 
 namespace NMX
 {
@@ -125,7 +122,7 @@ namespace NMX
             
             var uiObj = Instantiate((GameObject)uiResource);
 
-            Debug.Log("Instantiate UI!");
+            Debug.Log("Instantiate In Game UI!");
 
         }
 
@@ -175,13 +172,12 @@ namespace NMX
 
                 for (int i = 0; i < PlayerAvatarManager.TeamAvatar.Count; i++)
                 {
-                    if(PlayerAvatarManager.TeamAvatar.Count != PlayerAvatarManager.ScsAvatarEntityInfo.Count) { return; }
 
                     var index = Instantiate(PlayerAvatarManager.TeamAvatar[i], AvatarElement.transform);
 
                     Debug.Log("Created Entity : " + PlayerAvatarManager.TeamAvatar[i].gameObject.name);
 
-                    var ateinfo = PlayerAvatarManager.ScsAvatarEntityInfo[i];
+                    var ateinfo = PlayerAvatarManager.ScsTeamLineup[i].ScsAvatarEntityInfo;
 
                     entitiesManager.AddEntityGameObjectToFactory(index, ateinfo);
                 }
@@ -252,9 +248,10 @@ namespace NMX
 
             await Client.NET.SendPacketAsync(CmdType.GetAvatarDataReq);
 
-            await Client.NET.SendPacketAsync(CmdType.EnterScenePreStateReq);
+            //await Client.NET.SendPacketAsync(CmdType.EnterScenePreStateReq);
 
-            CreateInGameUIGameObject();
+
+            //await Client.NET.SendPacketAsync(CmdType.EnterScenePostStateReq);
 
         }
 
@@ -267,7 +264,7 @@ namespace NMX
 
                 currentLoadingSceneAsyncOp = SceneManager.LoadSceneAsync((int)sceneInfo.SceneId);
 
-                SendRequestAvatarData();
+                CreateInGameUIGameObject();
 
                 while (!currentLoadingSceneAsyncOp.isDone)
                 {
@@ -277,11 +274,13 @@ namespace NMX
                     yield return null;
                 }
 
-                yield return StartCoroutine(Client.NET.ClientSession.WaitForPacketProcessed(CmdType.GetTeamLineupDataRsp));
+                SendRequestAvatarData();
 
-                yield return StartCoroutine(Client.NET.ClientSession.WaitForPacketProcessed(CmdType.GetAvatarDataRsp));
+                yield return StartCoroutine(Client.NET.ClientSession.serverCommandHandler.WaitTaskProceed(CmdType.GetTeamLineupDataRsp));
 
-                StartCoroutine(Client.NET.SendPacketAsyncIEnumerator(CmdType.EnterScenePostStateReq));
+                yield return StartCoroutine(Client.NET.ClientSession.serverCommandHandler.WaitTaskProceed(CmdType.GetAvatarDataRsp));
+
+
 
                 PlayerAvatarManager.LoadServerAvatarData();
 
