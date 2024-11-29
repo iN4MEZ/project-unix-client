@@ -26,6 +26,7 @@ namespace NMX
         public void Dispose()
         {
             _conversation.Dispose();
+            _conversation.SetTransportClosed();
         }
 
         public async ValueTask<int> ReceiveAsync(Memory<byte> buffer, CancellationToken cancellationToken)

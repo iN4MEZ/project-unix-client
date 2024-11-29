@@ -15,8 +15,6 @@ namespace NMX.GameCore.Network.Protocol
         PlayerChangeSceneNotify,
         PlayerPositionNotify,
         PlayerTeleportRequest,
-        CscPlayerSync,
-        ScPlayerSync,
         ChestInteractionReq,
         ChestInteractionRsp,
         PlayerSwitchAvatarReq,

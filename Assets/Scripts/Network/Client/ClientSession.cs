@@ -21,8 +21,6 @@ namespace NMX.GameCore.Network.Client
 
         private bool active;
 
-        private CmdType _currentPacket;
-
         private INetworkUnit networkUnit;
 
         public ServerCommandHandler serverCommandHandler {  get; private set; }

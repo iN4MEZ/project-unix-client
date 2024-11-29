@@ -108,22 +108,6 @@ namespace NMX.GameCore.Network.Client
                     {
                         StartCoroutine(SendBreathingEnumerator());
 
-                        timer += Time.deltaTime;
-
-                        // ถ้าเกินช่วงเวลาที่กำหนดแล้ว Server ไม่ส่งเวลามาใหม่
-                        if (timer > checkInterval)
-                        {
-                            lostAttempt++;
-
-                            if (lostAttempt > 3)
-                            {
-                                Debug.LogError("Lost connection to server!");
-                                lostAttempt = 0;
-                            }
-
-                            timer = 0f; // Reset timer
-                        }
-
                     }
                 }
             }
@@ -215,9 +199,9 @@ namespace NMX.GameCore.Network.Client
 
                         ClientSession = new ClientSession(networkUnit);
 
-                        Debug.Log("Sync With Server! GoodJob! XD ");
+                        Debug.Log("ACK Connect With Server! GoodJob! Handsome ");
 
-                        await ClientSession!.RunAsync();
+                        await ClientSession.RunAsync();
 
                     }
 

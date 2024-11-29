@@ -20,7 +20,7 @@ namespace NMX
 
         public Vector3 PositionRigidbody { get { return PositionRigidbody; } set { Rigidbody.MovePosition(value); } }
 
-        public Rigidbody Rigidbody { get; }
+        public Rigidbody Rigidbody { get; protected set; }
 
 
         public virtual void RegisterServerEntityData(EntityInfo entityInfo)

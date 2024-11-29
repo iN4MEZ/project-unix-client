@@ -25,8 +25,6 @@ namespace NMX
 
             stateMachine.ReuseableData.CurrentState = stateMachine.currentState;
 
-            UIManager.instance.StateMachineInfo.text = stateMachine.ReuseableData.CurrentState.ToString();
-
             stateMachine.ReuseableData.isCombat = false;
 
             AddInputActionsCallback();
@@ -90,8 +88,6 @@ namespace NMX
             _lastSendTime = DateTime.Now;
 
             SendMovingInfo();
-
-            //Client.NET.SendPacketAsync(CmdType.PlayerMovingReq, new EntityMoving { EntityId = stateMachine.Player.PlayerAvatarManager.GetActiveAvatarManager().EntityId, MoveInfo = CreateMovingInfo() });
         }
 
         public virtual void LateUpdate()
@@ -122,23 +118,30 @@ namespace NMX
         protected void StartAnimation(int animationHash)
         {
 
-            if(stateMachine.Player.PlayerAvatarManager.GetActiveAvatarManager() == null)
-            {
-                return;
-            }
+            var activeAvatarManager = stateMachine.Player.PlayerAvatarManager.GetActiveAvatarManager();
+            if (activeAvatarManager == null) return;
 
-            stateMachine.Player.PlayerAvatarManager.GetActiveAvatarManager().Animator.SetBool(animationHash, true);
+            Animator animator = activeAvatarManager.Animator;
+
+            if (!animator.GetBool(animationHash))
+            {
+                animator.SetBool(animationHash, true);
+            }
         }
         
         
         protected void StopAnimation(int animationHash)
         {
-            if (stateMachine.Player.PlayerAvatarManager.GetActiveAvatarManager() == null)
-            {
-                return;
-            }
+            var activeAvatarManager = stateMachine.Player.PlayerAvatarManager.GetActiveAvatarManager();
+            if (activeAvatarManager == null) return;
 
-            stateMachine.Player.PlayerAvatarManager.GetActiveAvatarManager().Animator.SetBool(animationHash, false);
+            Animator animator = activeAvatarManager.Animator;
+
+            // ตรวจสอบว่าตัวละครกำลังเล่นแอนิเมชันนั้นอยู่ก่อนหยุด
+            if (animator.GetBool(animationHash))
+            {
+                animator.SetBool(animationHash, false);
+            }
         }
 
         protected void TriggerAnimation(int animationHash)

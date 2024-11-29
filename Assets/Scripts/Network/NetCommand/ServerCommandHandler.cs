@@ -17,6 +17,8 @@ namespace NMX
 
         private Dictionary<CmdType, bool> taskCompletionStatus = new Dictionary<CmdType, bool>();
 
+        public CmdType CscPacketProcessd;
+
         public Dictionary<CmdType, PacketHandler> packetHandlers { get; private set; }
 
         public void InitPacket()
@@ -33,7 +35,6 @@ namespace NMX
             packetHandlers[CmdType.ChestInteractionRsp] = ChestInteractionRspHandle;
             packetHandlers[CmdType.SceneChestUpdateNotify] = SceneUpdateNotify;
             packetHandlers[CmdType.PlayerSwitchAvatarRsp] = SwitchAvatarRspHandle;
-            packetHandlers[CmdType.ScPlayerSync] = PlayerSync;
             packetHandlers[CmdType.PlayerBasicInfoReq] = PlayerBasicInfo;
             packetHandlers[CmdType.PlayerPositionNotify] = PlayerPosition;
             packetHandlers[CmdType.PlayerChangeSceneNotify] = PlayerChangeSceneNotifyHandle;
@@ -56,6 +57,8 @@ namespace NMX
                 taskCompletionStatus[cmdType] = task.IsCompleted;
 
                 await task;
+
+                if (cmdType != CmdType.PlayerBreathingRsp) { CscPacketProcessd = cmdType; }
             }
             else
             {
@@ -176,22 +179,12 @@ namespace NMX
             await Task.CompletedTask;
         }
 
-        private async Task PlayerSync(NetPacket packet)
-        {
-            ScPlayerSync data = packet.DecodeBody<ScPlayerSync>();
-
-
-            await Task.CompletedTask;
-        }
-
         private async Task SwitchAvatarRspHandle(NetPacket packet)
         {
             PlayerSwitchActiveReq rsp = packet.DecodeBody<PlayerSwitchActiveReq>();
 
             PlayerAvatarManager manager = GameSceneManager.Instance.PlayerAvatarManager;
-
-            manager.SetAvatarActive(rsp.Index - 1);
-            
+         
 
             await Task.CompletedTask;
         }

@@ -1,3 +1,4 @@
+using NMX.GameCore.Network.Client;
 using QFSW.QC;
 using System;
 using System.Collections.Generic;
@@ -16,6 +17,8 @@ namespace NMX
 
         public Text ActiveAvatarHpValueText;
 
+        public Text PlayerInfoText;
+
         private Player Player;
 
         public GameObject ActiveAvatarPrefabs;
@@ -29,8 +32,6 @@ namespace NMX
         public GameObject DialogueCanvasBox;
         public Text DialogueTextBox;
         public Text DialogueNameText;
-
-        public Text StateMachineInfo;
 
 
         // Assets/Resources/UI/Game/Avatar/Prefabs/AvatarActiveUI.prefab
@@ -120,8 +121,10 @@ namespace NMX
         {
             if(Player != null)
             {
-                PlayerPhysicText.text = $"Position: {Player.Rigidbody.position}\r\nVelocity: {Player.Rigidbody.velocity}";
-                ClientTimeText.text = "ClientTime: " + DateTimeUtils.UnixSecondsToDateTime((uint)DateTimeOffset.Now.ToUnixTimeSeconds());
+                PlayerInfoText.text = $"V: {Player.Rigidbody.velocity} P: {Player.transform.position}\n" +
+                    $"S: {Player.movementStateMachine.ReuseableData.CurrentState.ToString().ToUpper()}\n" +
+                    $"SCS: {Client.instance.ClientConnectionState}\n" +
+                    $"PAYLOAD: {Client.NET.ClientSession.serverCommandHandler.CscPacketProcessd.ToString()}";
             }
         }
     }

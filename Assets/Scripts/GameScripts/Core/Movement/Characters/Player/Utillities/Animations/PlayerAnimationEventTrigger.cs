@@ -17,13 +17,15 @@ namespace NMX
         {
             player.OnMovementStateAnimationEnterEvent();
         }
-        public void TriggerOnMovementStateAnimationExitEvent()
-        {
-            player.OnMovementStateAnimationExitEvent();
-        }
+
         public void TriggerOnMovementStateAnimationTransitionEvent()
         {
             player.OnMovementStateAnimationTransitionEvent();
+        }
+
+        public void TriggerOnMovementStateAnimationExitEvent()
+        {
+            player.OnMovementStateAnimationExitEvent();
         }
     }
 }

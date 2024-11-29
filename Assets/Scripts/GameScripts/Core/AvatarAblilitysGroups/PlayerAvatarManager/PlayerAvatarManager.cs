@@ -102,8 +102,6 @@ namespace NMX
 
             Player.movementStateMachine.ReuseableData.InAvatarChangeTransition = true;
 
-            //Animators[int.Parse(key) - 2].SetBool(Animator.StringToHash("Stopping"),true);
-
 
             if (AvatarOnLoadData[int.Parse(key)-1] != null)
             {
@@ -111,6 +109,10 @@ namespace NMX
                 {
                     return;
                 }
+
+                SetAvatarActive(int.Parse(key)-1);
+
+                if (int.Parse(key)-1 == GetActiveAvatarIndex()) { return; }
 
                 await Client.NET.SendPacketAsync(CmdType.PlayerSwitchAvatarReq, new PlayerSwitchActiveReq { Index = int.Parse(key)});
 
@@ -126,25 +128,11 @@ namespace NMX
         private void OnChangeForStateAvatar()
         {
 
-            GameObject changedEntity = GetActiveAvatarManager().gameObject;
+            //AvatarManager changedEntity = GetActiveAvatarManager();
 
-            changedEntity.transform.SetParent(GameSceneManager.Instance.EntityOutStateElement.transform);
+            //changedEntity.gameObject.transform.SetParent(GameSceneManager.Instance.EntityOutStateElement.transform);
 
-            StartCoroutine(SetAvatarBackToElement(changedEntity, 2));
-
-            switch (Player.movementStateMachine.ReuseableData.CurrentState.GetType()) 
-            {
-                case Type t when t == typeof(PlayerRunningState):
-                    Player.movementStateMachine.ChangeState(Player.movementStateMachine.RunningState);
-                    break;
-                case Type t when t == typeof(PlayerSprintingState):
-                    Player.movementStateMachine.ChangeState(Player.movementStateMachine.SprintingState);
-                    break;
-                case Type t when t == typeof(PlayerIdlingState):
-                    Player.movementStateMachine.ChangeState(Player.movementStateMachine.IdlingState);
-                    break;
-
-            }
+            //StartCoroutine(SetAvatarBackToElement(changedEntity.gameObject, 2));
         }
 
         public void InitAvatar()
@@ -205,15 +193,19 @@ namespace NMX
 
         public void SetAvatarActive(int index)
         {
+
             Player.movementStateMachine.Player.PlayerInput.DisableActionFor(Player.PlayerInput.PlayerActions.SwitchAvatar, 1);
 
             AvatarManager currentActive = GetActiveAvatarManager();
             GameObject targetEntity = AvatarOnLoadData[index];
 
-            if(currentActive != null)
+            SaveAnimatorDataStates(currentActive.Animator);
+
+            SyncAnimatorState(currentActive.Animator, targetEntity.GetComponentInChildren<AvatarManager>().Animator);
+
+            if (currentActive != null)
             {
-                PlayerStoppingStateAnimation(currentActive.Animator);
-                StartCoroutine(WaitForAnimationToEnd(currentActive.Animator));
+
                 currentActive.gameObject.SetActive(false);
 
             }
@@ -224,8 +216,12 @@ namespace NMX
             }
 
             OnChangeAvatar?.Invoke();
+
+            RestoreAnimatorDataStates(targetEntity.GetComponentInChildren<AvatarManager>().Animator);   
+
             Player.movementStateMachine.ReuseableData.InAvatarChangeTransition = false;
             UpdateActiveAvatarHpValueUI(targetEntity.GetComponent<AvatarManager>());
+
         }
 
         public void DisableAllActiveAvatarExcept(int exceptIndex)
@@ -239,10 +235,40 @@ namespace NMX
             }
         }
 
-
-        private void PlayerStoppingStateAnimation(Animator animator)
+        private IEnumerator PlayStopAnimationAndSetActive(AvatarManager target)
         {
-            animator.SetBool(Player.movementStateMachine.Player.AnimationData.StoppingParameterHash, true);
+            if(target !=  null)
+            {
+                target.Animator.Play(Player.AnimationData.HardStopParameterHash);
+                yield return new WaitForSeconds(1f);
+                target.gameObject.SetActive(false);
+            }
+        }
+
+        private void SaveAnimatorDataStates(Animator animator)
+        {
+            Player.movementStateMachine.ReuseableData.AnimatorBoolStates.Clear();
+            foreach (AnimatorControllerParameter param in animator.parameters)
+            {
+                if (param.type == AnimatorControllerParameterType.Bool)
+                {
+                    Player.movementStateMachine.ReuseableData.AnimatorBoolStates[param.nameHash] = animator.GetBool(param.nameHash);
+                }
+            }
+
+            AnimatorStateInfo stateInfo = animator.GetCurrentAnimatorStateInfo(0);
+            Player.movementStateMachine.ReuseableData.CurrentStateHash = stateInfo.shortNameHash;
+            Player.movementStateMachine.ReuseableData.NormalizedTime = stateInfo.normalizedTime;
+        }
+
+        private void RestoreAnimatorDataStates(Animator animator)
+        {
+            foreach (var entry in Player.movementStateMachine.ReuseableData.AnimatorBoolStates)
+            {
+                animator.SetBool(entry.Key, entry.Value);
+            }
+
+            animator.Play(Player.movementStateMachine.ReuseableData.CurrentStateHash, 0, Player.movementStateMachine.ReuseableData.NormalizedTime % 1f);
         }
         void OnChangePlayerPosition()
         {
@@ -252,6 +278,23 @@ namespace NMX
 
             //Player.transform.Translate(leftOrRight * 2, Space.Self);
         }
+
+
+        private void SyncAnimatorState(Animator oldAnimator, Animator newAnimator)
+        {
+            if (oldAnimator == null || newAnimator == null) return;
+
+            // ดึงค่าของ Bool Parameters ทั้งหมด
+            foreach (AnimatorControllerParameter param in oldAnimator.parameters)
+            {
+                if (param.type == AnimatorControllerParameterType.Bool)
+                {
+                    bool value = oldAnimator.GetBool(param.nameHash);
+                    newAnimator.SetBool(param.nameHash, value);
+                }
+            }
+        }
+
 
         private IEnumerator WaitForAnimationToEnd(Animator animator)
         {
@@ -270,9 +313,6 @@ namespace NMX
         private void Update()
         {
 
-            if(Input.GetKeyDown(KeyCode.G)) {
-                PlayerStoppingStateAnimation(GetActiveAvatarManager().Animator);
-            }
         }
     }
 }

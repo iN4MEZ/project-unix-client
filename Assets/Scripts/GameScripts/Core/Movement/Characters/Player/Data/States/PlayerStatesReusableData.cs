@@ -23,6 +23,12 @@ namespace NMX
         public IState CurrentState { get; set; }
 
 
+        public Dictionary<int, bool> AnimatorBoolStates = new Dictionary<int, bool>();
+
+        public int CurrentStateHash;
+        public float NormalizedTime;
+
+
         private Vector3 currentTargetRotation;
         private Vector3 timeToReachTargetRotation;
         private Vector3 dampedTargetRotationCurrentVelocity;

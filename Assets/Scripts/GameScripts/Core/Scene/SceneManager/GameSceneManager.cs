@@ -248,10 +248,9 @@ namespace NMX
 
             await Client.NET.SendPacketAsync(CmdType.GetAvatarDataReq);
 
-            //await Client.NET.SendPacketAsync(CmdType.EnterScenePreStateReq);
+            await Client.NET.SendPacketAsync(CmdType.EnterScenePreStateReq);
 
-
-            //await Client.NET.SendPacketAsync(CmdType.EnterScenePostStateReq);
+            await Client.NET.SendPacketAsync(CmdType.EnterScenePostStateReq);
 
         }
 

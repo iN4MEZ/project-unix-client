@@ -21,9 +21,6 @@ namespace NMX
         public AvatarSkillBehavior Behavior;
 
         public Animator Animator { get; private set; }
-
-        public Rigidbody Rigidbody { get; private set; }
-
         public int CurrentHp {  get; private set; }
 
 
@@ -44,6 +41,8 @@ namespace NMX
         public void InitializeAvatarAnimation()
         {
             Animator = GetComponentInChildren<Animator>();
+
+            Animator.Rebind();
 
             Debug.Log(SOData.Data.AvatarName+" Animation Loaded!!");
         }
